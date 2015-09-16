@@ -1560,6 +1560,8 @@ pre code {
   background-color: transparent;
   border-radius: 0;
 }
+
+/*remove scrolling restriction on side bar*/
 .pre-scrollable {
   max-height: 340px;
   overflow-y: scroll;
