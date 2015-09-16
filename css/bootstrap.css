@@ -1057,7 +1057,10 @@ th {
 .glyphicon-menu-up:before {
   content: "\e260";
 }
-* {
+
+/*adjusted this from asterisk to be a new class*/
+/*this has an effect on the commerce logo in the banner and borders, but also effects the column/rows system*/
+div.boxer {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
