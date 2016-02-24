@@ -1,0 +1,20 @@
+.setWhiteBackground {
+	background-color: white;
+}
+
+.setBlueBackground {
+	background-color: #002952;
+}
+
+.setYellowBackground {
+	background-color: #969353;
+}
+
+.portfolio-modal .modal-content p {
+	margin-bottom: 18px;
+	line-height: 1.6;
+}
+
+.nameOnModal {
+	margin-top: 0px;
+}
