@@ -18,3 +18,11 @@
 .nameOnModal {
 	margin-top: 0px;
 }
+
+.circlePic {
+	border-radius: 50%;
+}
+
+.container .mix {
+	background: #969353;
+}

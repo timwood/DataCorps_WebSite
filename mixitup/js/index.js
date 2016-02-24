@@ -123,7 +123,7 @@ $(function(){
     }
   });
 
-  $('#riskmap').on('show.bs.modal', function(e) {
+  $('.touchModal').on('show.bs.modal', function(e) {
     var modal = $(this);
     //modal.css( "border", " 3px solid red");
     var framei = document.getElementById("topOfBox");
