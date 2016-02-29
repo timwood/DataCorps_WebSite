@@ -1,0 +1,50 @@
+
+.searchColorText {
+    color: black;
+}
+
+.setYellowBackground {
+	background-color: #879bb9;
+}
+
+.container .mix {
+	display: inline-block;
+}
+
+.portfolio-modal .modal-content{
+	height: auto;
+}
+
+div.modal-content {
+	margin: 60px;
+}
+
+div.modal-content .close-modal {
+	position: static;
+	top: 25px;
+	right: 25px;
+	width: 75px;
+	height: 75px;
+	background-color: transparent;
+	cursor: pointer;
+	padding-left: 20px;
+	padding-top: 15px;
+}
+
+div.modal-content .close-modal .lr {
+	z-index: 1051;
+	width: 1px;
+	height: 75px;
+	margin-left: 35px;
+	background-color: #222;
+	transform: rotate(45deg);
+}
+
+div.modal-content .close-modal .lr .rl {
+	z-index: 1052;
+	width: 1px;
+	height: 75px;
+	margin-left: 1px;
+	background-color: #222;
+	transform: rotate(90deg);
+}

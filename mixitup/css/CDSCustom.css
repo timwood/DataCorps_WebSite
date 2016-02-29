@@ -7,7 +7,7 @@
 }
 
 .setYellowBackground {
-	background-color: #969353;
+	background-color: #879bb9;
 }
 
 .portfolio-modal .modal-content p {
@@ -24,5 +24,13 @@
 }
 
 .container .mix {
-	background: #969353;
+	background: #879bb9;
+}
+
+.datacorps .setYellowBackground {
+	padding-bottom: 0px;
+}
+
+.modalsetYellowBackground .modal-content {
+	margin: 40px 60px 0px 60px;
 }
