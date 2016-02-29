@@ -7,7 +7,7 @@
 	background-color: #879bb9;
 }
 
-.container .mix {
+.Container #mix {
 	display: inline-block;
 }
 
@@ -47,4 +47,8 @@ div.modal-content .close-modal .lr .rl {
 	margin-left: 1px;
 	background-color: #222;
 	transform: rotate(90deg);
+}
+
+div.modalTextStyles {
+	margin: 20px 3px 30px 3px;
 }
