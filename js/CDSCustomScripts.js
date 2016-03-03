@@ -1,7 +1,13 @@
-$('#sasan').on('show.bs.modal', function () {
-       $(this).find('.modal-body').css({
-              width:'auto', //probably not needed
-              height:'auto', //probably not needed 
-              'max-height':'100%'
-       });
+$(function() {
+	$('#Sasan').on('loaded.bs.modal', function (e) {
+	    console.log('running this modal function');
+	    $(this).appendTo('#iFrameSection');
+	});
+
 });
+
+function yellowDog() {
+	console.log('it is reading the customscripts');
+}
+
+yellowDog();

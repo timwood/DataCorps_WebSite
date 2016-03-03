@@ -922,6 +922,7 @@ if (typeof jQuery === 'undefined') {
     this.$backdrop      =
     this.isShown        = null
     this.scrollbarWidth = 0
+    this.$boxer         = $('.boxer')
 
     if (this.options.remote) {
       this.$element
@@ -970,7 +971,7 @@ if (typeof jQuery === 'undefined') {
       var transition = $.support.transition && that.$element.hasClass('fade')
 
       if (!that.$element.parent().length) {
-        that.$element.appendTo(that.$body) // don't move modals dom position
+        that.$element.appendTo(that.$boxer) // don't move modals dom position
       }
 
       that.$element
