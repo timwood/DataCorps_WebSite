@@ -79,6 +79,8 @@ div.modalTextStyles {
   }
 }
 
+
+
 @media all and (min-width: 520px) {
   .container .mix,
   .container .gap{
@@ -100,13 +102,6 @@ div.modalTextStyles {
   }
 }
 
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
-   /* IE10+ specific styles go here */ 
-  .container .mix,
-  .container .gap{
-    width: 16%;
-  }
-}
 
 div.mix .pictureDiv {
 	background-color: blue;
