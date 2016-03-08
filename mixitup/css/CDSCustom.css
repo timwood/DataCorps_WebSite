@@ -79,7 +79,14 @@ div.modalTextStyles {
   }
 }
 
-
+@media all and (min-width: 520px) and (-ms-high-contrast: none), (-ms-high-contrast: active) {  
+   /* IE10+ specific styles go here */ 
+  .ie10up
+  .container .mix,
+  .container .gap{
+    width: 22%;
+  }
+}
 
 @media all and (min-width: 520px) {
   .container .mix,
@@ -88,10 +95,28 @@ div.modalTextStyles {
   }
 }
 
+@media all and (min-width: 640px) and (-ms-high-contrast: none), (-ms-high-contrast: active) {  
+   /* IE10+ specific styles go here */ 
+  .ie10up
+  .container .mix,
+  .container .gap{
+    width: 19%;
+  }
+}
+
 @media all and (min-width: 640px) {
   .container .mix,
   .container .gap{
     width: 19%;
+  }
+}
+
+@media all and (min-width: 840px) and (-ms-high-contrast: none), (-ms-high-contrast: active) {  
+   /* IE10+ specific styles go here */ 
+  .ie10up
+  .container .mix,
+  .container .gap{
+    width: 16%;
   }
 }
 
