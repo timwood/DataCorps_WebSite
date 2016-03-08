@@ -90,7 +90,7 @@ div.modalTextStyles {
   }
 }
 
-@media (min-width: 840px) (-ms-high-contrast: none), (-ms-high-contrast: active) {
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .container .mix,
   .container .gap{
     width: 16%;
