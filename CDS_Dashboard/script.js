@@ -207,8 +207,8 @@
                     //         }
                     //     },
                     // },
-                    height: 600, // sets chart height regardless of div
-                    width: 800, // sets chart width regardless of div
+                    //height: 600, // sets chart height regardless of div
+                    //width: 800, // sets chart width regardless of div
                     // plotBackgroundColor: { //sets the background color
                     //     linearGradient: [0, 0, 500, 500],
                     //     stops: [
