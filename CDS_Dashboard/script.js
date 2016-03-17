@@ -1,11 +1,12 @@
         var chart;
         $(document).ready(function () {
             var title = 'Commerce Data Service',
-                subtitle = 'Click on a section to drill-down',
+                subtitle = 'Click on a section to view more',
                 colors = Highcharts.getOptions().colors,
                 categories = ['Pre-Discovery', 'Discovery', 'In-Progress', 'Complete'], // category name matches 'name' property
                 name = 'Groups',
                 subtitle2 = 'Click section to return Home',
+                subtitle3 = 'Click section to return Home or view more'
                 data = [{
                     y: 2, // this is to determine how big the slice of the pie you want for this item
                     name: 'Pre-Discovery', // this is the top group - used in  328, 339 for tool tip and resetting
@@ -39,7 +40,7 @@
                         data: [{
                             y: 1,
                             name: 'BEA',
-                            color: '#dee58c',
+                            color: '#C5CB7C',
                             initiative: 'BEA RIMS II',
                             services: 'UI/UX',
                             objective: 'Delivering Data Services'
@@ -52,54 +53,56 @@
                     list: 'ITA, NIST, PTO, ESA',
                     drilldown: {
                         title: 'In-Progress Clients',
-                        subtitle: subtitle2,
+                        subtitle: subtitle3,
                         name: 'Users',
                         categories: ['NIST', 'PTO', 'ESA', 'ITA'],
                         data: [{
                             y: 1,
                             name: 'NIST',
-                            color: colors[2],
+                            color: '#00555f',
                             initiative: 'Commerce Interoperability Project',
                             services: 'Data Science, Back-End',
                             objective: 'Creating Data-Driven Government'
                         },  {
                             y: 1,
                             name: 'PTO',
-                            color: colors[3],
+                            color: '#007786',
                             initiative: 'Open Data Roadmap',
                             services: 'General',
                             objective: 'Fueling Economic Growth'
                         }, {
                             y: 1,
                             name: 'ESA',
-                            color: colors[4],
+                            color: '#00b0c5',
                             initiative: 'Commerce Data Advisory Council',
                             services: 'General',
                             objective: 'Fueling Economic Growth'
                         }, {
                             y: 2,
                             name: 'ITA',
-                            color: colors[5],
+                            color: '#003339',
                             initiative: 'Numerous Projects',
                             services: 'UI/UX, Back-End, Data Science',
                             objective: 'Numerous Objectives',
                             drilldown: {
                                 title: 'ITA',
-                                subtitle: subtitle,
+                                subtitle: subtitle2,
                                 name: 'Users',
                                 categores: ['New Exporters', 'Principal Tracker'],
                                 data: [{
                                     y: 1,
                                     name: 'Principal Tracker',
-                                    color: colors[1],
+                                    color: '#00555f',
                                     services: 'UX/UI, Back-End',
-                                    objective: 'Delivering Data Services'
+                                    objective: 'Delivering Data Services',
+                                    deepDrill: true
                                 },{
                                     y: 1,
                                     name: 'New Exporters Project',
-                                    color: colors[2],
+                                    color: '#00b0c5',
                                     services: 'Data Science',
-                                    objective: 'Fueling Economic Growth'
+                                    objective: 'Fueling Economic Growth',
+                                    deepDrill: true
                                 }]
                             }
                         }]
@@ -111,46 +114,49 @@
                     list: 'DOC, CENSUS',
                     drilldown: {
                         title: 'Complete Projects',
-                        subtitle: subtitle,
+                        subtitle: subtitle3,
                         name: 'Users',
                         categories: ['DOC, CENSUS'],
                         data: [{
                             y: 1,
                             name: 'CENSUS',
-                            color: colors[1],
+                            color: '#00376a',
                             initiative: 'Income Inequality',
                             services: 'General',
                             objective: 'Fueling Economic Growth'
                         }, {
                             y: 3,
                             name: 'DOC',
-                            color: colors[2],
+                            color: '#0057a9',
                             initiative: 'Numerous Projects',
                             services: 'UX/UI, Data Science, Back-End',
                             objective: 'Numerous Objectives',
                             drilldown: {
                                 title: 'DOC Projects',
-                                subtitle: 'Completed',
+                                subtitle: subtitle2,
                                 name: 'Users',
                                 categories: ['Commerce Data Usability Project', 'Data.Commerce.Gov', 'White House Council of Women and Girls'],
                                 data: [{
                                     y: 1,
                                     name: 'Commerce Data Usability Project',
-                                    color: colors[1],
+                                    color: '#0078e9',
                                     services: 'Data Science, UX/UI, Back-End',
-                                    objective: 'Delivering Data Services'
+                                    objective: 'Delivering Data Services',
+                                    deepDrill: true
                                 }, {
                                     y: 1,
                                     name: 'Data.Commerce.Gov',
-                                    color: colors[2],
+                                    color: '#00305d',
                                     services: 'General',
-                                    objective: 'Fueling Economic Growth'
+                                    objective: 'Fueling Economic Growth',
+                                    deepDrill: true
                                 }, {
                                     y: 1, 
                                     name: 'White House Council of Women and Girls',
-                                    color: colors[3],
+                                    color: '#0057a9',
                                     services: 'Data Science, UX/UI',
-                                    objective: 'Delivering Data Services'
+                                    objective: 'Delivering Data Services',
+                                    deepDrill: true
                                 }]
                             }
                         }]
@@ -180,10 +186,6 @@
                 }, false); // adds the series (which contains the data) - we pass it a new object and tell it false so it doesn't automatically re-render
                  // xAxis[0] since there is only 1 axis - setCategory sets categories from the array you pass it (options.categories - you use false so it doesn't automatically redraw THUS you use chart.redraw() after)
                 chart.redraw() // redraws chart
-            }
-
-            function redraw(options) {
-                chart.redraw();
             }
 
             chart = new Highcharts.Chart({
@@ -295,14 +297,22 @@
                     formatter: function () {
                         var point = this.point, // sets keyword 'this' -- this.point is really series.data
                             s = point.name + ': ' + point.list + '. '; //formats pointer
-                        if (point.drilldown) { // if the point is in series.data.drilldown do this
+                        if (point.deepDrill) {
+                            s = point.name + '<br/>' + 
+                                'Services: ' + point.services + '<br/>' +
+                                'Objective: ' + point.objective + '<br/>' + '<br/>' +
+                                '<em>' + 'Click to return home' + '</em>';
+                        } else if (point.objective == 'Numerous Objectives') { 
+                            s = point.name + '<br/>' + 
+                                '<em>' + 'Click Here to Learn More About ' + point.name + ' Projects' + '</em>';
+                        } else if (point.drilldown){
                             s = 'Click to view ' + point.name;
                         } else {
                             s = point.name + '<br/>' + 
                                 'Initiative: ' + point.initiative + '<br/>' +
                                 'Services: ' + point.services + '<br/>' +
                                 'Objective: ' + point.objective + '<br/>' + '<br/>' +
-                                '<em>' + 'Click Back to Home' + '</em>';
+                                '<em>' + 'Click to return home' + '</em>';
                         }
                         return s;
                     }
