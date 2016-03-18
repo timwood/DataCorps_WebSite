@@ -1,0 +1,41 @@
+
+/* This is the CSS for the close modal */
+div.close-modal {
+  position: static;
+  top: 25px;
+  right: 25px;
+  width: 75px;
+  height: 75px;
+  background-color: transparent;
+  cursor: pointer;
+  padding-left: 20px;
+  padding-top: 15px;
+}
+
+/* These next two create the X for the close modal*/
+div.close-modal .lr {
+  z-index: 1051;
+  width: 1px;
+  height: 75px;
+  margin-left: 35px;
+  background-color: #222;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+div.close-modal .lr .rl {
+  z-index: 1052;
+  width: 1px;
+  height: 75px;
+  margin-left: 1px;
+  background-color: #222;
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+}
+
+div.modal {
+	margin-left: 297px;
+	margin-right: 250px;
+	margin-top: 75px;
+	padding-left: 30px;
+}
