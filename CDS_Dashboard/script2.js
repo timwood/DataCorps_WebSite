@@ -2,9 +2,29 @@
         var chart2;
         $('#exampleModal').modal('hide');
 
+            // var mq = window.matchMedia("(min-width: 600px)");
+            // mq.addListener(widthChange);
+            // widthChange(mq);
+        //var mq = window.matchMedia("(min-width: 600px)"); 
+
 
         $(document).ready(function () {
+            // var mq = window.matchMedia("(min-width: 600px)");
+            // mq.addListener(widthChange);
+            // widthChange(mq);
+
+            // function widthChange(mq) {
+            //     if (mq.matches) {
+            //         console.log('this works');
+            //         console.log(chart2)
+            //     }
+            //     else {
+            //         console.log('hello');
+            //     }
+            // }
+
             var title = 'Commerce Data Service';
+                chartType = 'pie';
                 subtitle = 'Click on a section to view more';
                 colors = Highcharts.getOptions().colors;
                 categories = ['Pre-Discovery', 'Discovery']; // category name matches 'name' property
@@ -47,10 +67,11 @@
                             color: '#C5CB7C',
                             initiative: 'BEA RIMS II',
                             services: 'UI/UX',
-                            objective: 'Delivering Data Services'
+                            objective: 'Delivering Data Services',
+                            modal: '#exampleModal'
                         }]
                     }
-                }, {
+                        }, {
                     y: 5,
                     name: 'In-Progress',
                     color: '#006c79',
@@ -58,7 +79,7 @@
                     drilldown: {
                         title: 'In-Progress Clients',
                         subtitle: subtitle2,
-                        name: 'Users',
+                        //name: 'Users',
                         categories: ['NIST', 'PTO', 'ESA', 'ITA'],
                         data: [{
                             y: 1,
@@ -66,49 +87,39 @@
                             color: '#00555f',
                             initiative: 'Commerce Interoperability Project',
                             services: 'Data Science, Back-End',
-                            objective: 'Creating Data-Driven Government'
+                            objective: 'Creating Data-Driven Government',
+                            modal: '#exampleModal'
                         },  {
                             y: 1,
                             name: 'PTO',
                             color: '#007786',
                             initiative: 'Open Data Roadmap',
                             services: 'General',
-                            objective: 'Fueling Economic Growth'
+                            objective: 'Fueling Economic Growth',
+                            modal: '#exampleModal'
                         }, {
                             y: 1,
                             name: 'ESA',
                             color: '#00b0c5',
                             initiative: 'Commerce Data Advisory Council',
                             services: 'General',
-                            objective: 'Fueling Economic Growth'
+                            objective: 'Fueling Economic Growth',
+                            modal: 'exampleModal'
                         }, {
-                            y: 2,
+                            y: 1,
                             name: 'ITA',
                             color: '#003339',
-                            initiative: 'Numerous Projects',
-                            services: 'UI/UX, Back-End, Data Science',
-                            objective: 'Numerous Objectives',
-                            drilldown: {
-                                title: 'ITA',
-                                subtitle: subtitle2,
-                                name: 'Users',
-                                categores: ['New Exporters', 'Principal Tracker'],
-                                data: [{
-                                    y: 1,
-                                    name: 'Principal Tracker',
-                                    color: '#00555f',
-                                    services: 'UX/UI, Back-End',
-                                    objective: 'Delivering Data Services',
-                                    deepDrill: true
-                                },{
-                                    y: 1,
-                                    name: 'New Exporters Project',
-                                    color: '#00b0c5',
-                                    services: 'Data Science',
-                                    objective: 'Fueling Economic Growth',
-                                    deepDrill: true
-                                }]
-                            }
+                            initiative: 'Principal Tracker',
+                            services: 'UI/UX, Back-End',
+                            objective: 'Delivering Data Services',
+                            modal: '#exampleModal'
+                        }, {
+                            y: 1,
+                            name: 'ITA',
+                            color: '#00D8F2',
+                            initiative: 'New Exporters Project',
+                            services: 'Data Science',
+                            objective: 'Fueling Economic Growth',
                         }]
                     }
                 }, {
@@ -129,44 +140,30 @@
                             services: 'General',
                             objective: 'Fueling Economic Growth'
                         }, {
-                            y: 3,
+                            y: 1,
                             name: 'DOC',
                             color: '#0057a9',
-                            initiative: 'Numerous Projects',
+                            initiative: 'Commerce Data Usability Project',
                             services: 'UX/UI, Data Science, Back-End',
-                            objective: 'Numerous Objectives',
-                            drilldown: {
-                                title: 'DOC Projects',
-                                subtitle: subtitle2,
-                                name: 'Users',
-                                categories: ['Commerce Data Usability Project', 'Data.Commerce.Gov', 'White House Council of Women and Girls'],
-                                data: [{
-                                    y: 1,
-                                    name: 'Commerce Data Usability Project',
-                                    color: '#0078e9',
-                                    services: 'Data Science, UX/UI, Back-End',
-                                    objective: 'Delivering Data Services',
-                                    deepDrill: true
-                                }, {
-                                    y: 1,
-                                    name: 'Data.Commerce.Gov',
-                                    color: '#00305d',
-                                    services: 'General',
-                                    objective: 'Fueling Economic Growth',
-                                    deepDrill: true
-                                }, {
-                                    y: 1, 
-                                    name: 'White House Council of Women and Girls',
-                                    color: '#0057a9',
-                                    services: 'Data Science, UX/UI',
-                                    objective: 'Delivering Data Services',
-                                    deepDrill: true
-                                }]
-                            }
+                            objective: 'Delivering Data Services'
+                        }, {
+                            y: 1,
+                            name: 'DOC',
+                            color: '#0078e9',
+                            initiative: 'Data.Commerce.Gov',
+                            services: 'General',
+                            objective: 'Fueling Economic Growth'
+                        }, {
+                            y: 1, 
+                            name: 'DOC',
+                            color: '#0057a9',
+                            initiative: 'White House Council of Women and Girls',
+                            services: 'Data Science, UX/UI',
+                            objective: 'Delivering Data Services',
                         }]
                     }
-                }]; // end of data property
-                chartType = 'pie';
+                }];  // end of data property
+            
             //    alpha = 0;
 
             // if (chartType == 'pie') {
@@ -210,9 +207,8 @@
                 chart2.redraw() // redraws chart
             }
 
-            // Used to create the modals rather than 
-            function createModal(series) {
-                
+            //Used to create the modals rather than 
+            function createModal(series) {              
                 $('#modalName').prepend('<p>' + "Bureau: " + series.name + '</p>');
                 $('#modalInitiative').prepend('<p>' + "Initiative: " + series.initiative + '</p>')
                 $('#modalServices').prepend('<p>' + "Services: " + series.services + '</p>')
@@ -222,10 +218,9 @@
                 console.log(series.name);
                 console.log(series);
                 clearModal();
-
             }
 
-            // Clears the modal so if double-clicked the information won't show up twice
+            //Clears the modal so if double-clicked the information won't show up twice
             function clearModal() {
                 $('.close-modal').click(function() {
                     //console.log('hi');
@@ -235,8 +230,8 @@
                     $('#modalObjective').empty();
                 });
             }
-            
-            
+
+
 
             chart = new Highcharts.Chart({
                 credits: {
@@ -246,7 +241,8 @@
                     style: {
                         fontFamily: 'SourceSansProRegular, Open Sans, Helvetica Neue, Arial, sans-serif'
                     },
-                    renderTo: 'chartContainer' // passing it where to put it on the HTML - there is a div with ID 'chartContainer'
+                    renderTo: 'chartContainer'
+                    //marginTop: 0 // passing it where to put it on the HTML - there is a div with ID 'chartContainer'
                     // options3d: {
                     //     enabled: true,
                     //     alpha: alpha,
@@ -302,6 +298,7 @@
                         //         }
                         //     }
                         // },
+                        //size: 300,
                         dataLabels: {
                             enabled: true,
                             color: 'black',
@@ -449,6 +446,7 @@
                         // },
                         dataLabels: {
                             enabled: true,
+                            //distance: -10,
                             color: 'black',
                             style: {
                                 fontWeight: 'bold'
@@ -488,7 +486,7 @@
                                     // setSecondChart(options); // re
                                     //console.log(point.initiative);
                                     createModal(this);
-                                    //$(this.modal).modal('show');
+                                    $(this.modal).modal('show');
                                     //console.log(this);
                                     //console.log(this.modal);
                                     //console.log(typeof(this));
@@ -531,4 +529,37 @@
                     enabled: false // can't print chart
                 },
             }); // end of chart = new Highcharts.Chart()
+
+            //
+            // mq.addListener(mobileSize);
+
+            // function mobileSize(self) {
+            //     if (mq.matches) { //desktop
+            //         console.log(self);
+            //         console.log(self.options.plotOptions.pie.dataLabels.distance);
+            //         self.options.plotOptions.pie.dataLabels.distance = -10;
+            //         self.redraw();
+            //     }
+            //     else {
+            //         console.log('still works');
+            //         console.log(self);
+            //     }
+            // }
+
+
+            // function widthChange(mq) {
+            //     if (mq.matches) { //this means it is desktop
+            //         //console.log('this works');
+            //         //console.log(chart2.title.alignOptions.margin)
+            //         console.log(chart2.options.plotOptions.pie.dataLabels.distance)
+            //     }
+            //     else { //this means it is mobile
+            //         //console.log('hello');
+            //         //console.log(chart2.title.alignOptions.margin)
+            //         console.log(chart2.options.plotOptions.pie.dataLabels.distance);
+            //         chart2.options.plotOptions.pie.dataLabels.distance = 10;
+            //         chart2.redraw();
+            //     }
+            // }
+
         }); // end of document.ready()
