@@ -1,4 +1,9 @@
 
+#secondContainer {
+  float: right;
+  visibility: hidden;
+}
+
 /* This is the CSS for the close modal */
 div.close-modal {
   float: left;

@@ -188,8 +188,12 @@ function setChart(options) {
      // xAxis[0] since there is only 1 axis - setCategory sets categories from the array you pass it (options.categories - you use false so it doesn't automatically redraw THUS you use chart.redraw() after)
     chart.redraw() // redraws chart
 }
+var secondChart = $('#secondContainer'); 
+var firstChart = $('#chartContainer');
 
 function setSecondChart(options) {
+    firstChart.css("float","left");
+    secondChart.css("visibility","visible");
     chart2.setTitle({
         text: options.title
     }, {
@@ -205,6 +209,8 @@ function setSecondChart(options) {
     }, false); // adds the series (which contains the data) - we pass it a new object and tell it false so it doesn't automatically re-render
      // xAxis[0] since there is only 1 axis - setCategory sets categories from the array you pass it (options.categories - you use false so it doesn't automatically redraw THUS you use chart.redraw() after)
     chart2.redraw() // redraws chart
+    console.log('this is running');
+    //secondChart.css("visibility: visible");
 }
 
 //Used to create the modals rather than 
@@ -231,6 +237,9 @@ function clearModal() {
     });
 }
 
+function moveChart(obj) {
+
+}
 
 
 chart = new Highcharts.Chart({
@@ -337,6 +346,7 @@ chart = new Highcharts.Chart({
                         // console.log(options);
                         // console.log(chart2);
                         //setChart(options);
+
                         setSecondChart(options); // redraws the chart and initializes it
                     } //end of click
                 } // end of events
