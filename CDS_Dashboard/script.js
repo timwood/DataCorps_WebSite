@@ -191,9 +191,13 @@ function setChart(options) {
 var secondChart = $('#secondContainer'); 
 var firstChart = $('#chartContainer');
 
+function moveChart() {
+    firstChart.animate({'marginLeft' : "-=300px"}, 100);
+    firstChart.css("float", "left");
+    console.log('moveChart running');
+}
+
 function setSecondChart(options) {
-    firstChart.css("float","left");
-    secondChart.css("visibility","visible");
     chart2.setTitle({
         text: options.title
     }, {
@@ -209,8 +213,12 @@ function setSecondChart(options) {
     }, false); // adds the series (which contains the data) - we pass it a new object and tell it false so it doesn't automatically re-render
      // xAxis[0] since there is only 1 axis - setCategory sets categories from the array you pass it (options.categories - you use false so it doesn't automatically redraw THUS you use chart.redraw() after)
     chart2.redraw() // redraws chart
+    
+    firstChart.css("marginLeft", "auto");
+    chart.redraw();
     console.log('this is running');
-    //secondChart.css("visibility: visible");
+    //console.log(firstChart.position())
+    secondChart.css("visibility","visible");
 }
 
 //Used to create the modals rather than 
@@ -237,10 +245,7 @@ function clearModal() {
     });
 }
 
-function moveChart(obj) {
-
-}
-
+var counter = 0;
 
 chart = new Highcharts.Chart({
     credits: {
@@ -321,33 +326,67 @@ chart = new Highcharts.Chart({
             point: {
                 events: {
                     click: function () {
-                        var drilldown = this.drilldown; // uses keyword 'this'
-                        var options; // create variable to passed into setChart function
-                        if (drilldown) { // drill down
-                            options = {
-                                    'title': drilldown.title,
-                                    'subtitle': drilldown.subtitle,
-                                    'name': drilldown.name,
-                                    'categories': drilldown.categories,
-                                    'data': drilldown.data,
-                                    'type': chartType
-                            };
-                        } else { // restore to first level
-                            options = {
-                                    'title': title,
-                                    'subtitle': subtitle,
-                                    'name': name,
-                                    'categories': categories,
-                                    'data': data,
-                                    'type': chartType
-                                // return options;
-                            };
-                        }
-                        // console.log(options);
-                        // console.log(chart2);
-                        //setChart(options);
+                        
 
-                        setSecondChart(options); // redraws the chart and initializes it
+                        if (counter == 0) {
+                            counter++;
+                            moveChart();
+                            var drilldown = this.drilldown; // uses keyword 'this'
+                            var options; // create variable to passed into setChart function
+                            setTimeout(function() {
+                                setSecondChart(options)
+                            },700);
+                            if (drilldown) { // drill down
+                                options = {
+                                        'title': drilldown.title,
+                                        'subtitle': drilldown.subtitle,
+                                        'name': drilldown.name,
+                                        'categories': drilldown.categories,
+                                        'data': drilldown.data,
+                                        'type': chartType
+                                };
+                            } else { // restore to first level
+                                options = {
+                                        'title': title,
+                                        'subtitle': subtitle,
+                                        'name': name,
+                                        'categories': categories,
+                                        'data': data,
+                                        'type': chartType
+                                    // return options;
+                                };
+                            }
+                        } else {
+                            var drilldown = this.drilldown; // uses keyword 'this'
+                            var options; // create variable to passed into setChart function
+                            if (drilldown) { // drill down
+                                options = {
+                                        'title': drilldown.title,
+                                        'subtitle': drilldown.subtitle,
+                                        'name': drilldown.name,
+                                        'categories': drilldown.categories,
+                                        'data': drilldown.data,
+                                        'type': chartType
+                                };
+                            } else { // restore to first level
+                                options = {
+                                        'title': title,
+                                        'subtitle': subtitle,
+                                        'name': name,
+                                        'categories': categories,
+                                        'data': data,
+                                        'type': chartType
+                                    // return options;
+                                };
+                            }
+                            setSecondChart(options);
+                        }
+                            
+                            // console.log(options);
+                            // console.log(chart2);
+                            //setChart(options);
+                            //moveChart(options);
+                             // redraws the chart and initializes it
                     } //end of click
                 } // end of events
             }

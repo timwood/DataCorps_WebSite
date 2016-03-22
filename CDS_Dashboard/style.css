@@ -2,6 +2,11 @@
 #secondContainer {
   float: right;
   visibility: hidden;
+  padding-top: 50px;
+}
+
+#chartContainer {
+  padding-top: 50px;
 }
 
 /* This is the CSS for the close modal */
@@ -117,5 +122,9 @@ and (orientation : portrait) {
 
     #modalObjective p {
       font-size: 29px;
+    }
+
+    #chartContainer {
+      height: 50%;
     }
 }
