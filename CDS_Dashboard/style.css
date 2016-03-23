@@ -1,12 +1,15 @@
 
 #secondContainer {
-  float: right;
+  display: inline-block;
   visibility: hidden;
   padding-top: 50px;
+  margin: 0 auto;
 }
 
 #chartContainer {
   padding-top: 50px;
+  /*display: inline-block;*/
+  margin: 0 auto;
 }
 
 /* This is the CSS for the close modal */

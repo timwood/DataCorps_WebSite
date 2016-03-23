@@ -9,19 +9,22 @@ $('#exampleModal').modal('hide');
 
 
 $(document).ready(function () {
-// var mq = window.matchMedia("(min-width: 600px)");
-// mq.addListener(widthChange);
-// widthChange(mq);
+ var mq = window.matchMedia("(max-width: 600px)");
+ mq.addListener(widthChange);
+ widthChange(mq);
 
-// function widthChange(mq) {
-//     if (mq.matches) {
-//         console.log('this works');
-//         console.log(chart2)
-//     }
-//     else {
-//         console.log('hello');
-//     }
-// }
+function widthChange(mq) {
+    if (mq.matches) {
+        console.log('should be mobile');
+        $('#secondContainer').css("height", "250px");
+        $('#chartContainer').css("height", "250px");
+    }
+    else {
+        console.log('should be desktop');
+        $('#secondContainer').css("height", "500px");
+        $('#chartContainer').css("height", "500px");
+    }
+}
 
 var title = 'Commerce Data Service';
     chartType = 'pie';
@@ -192,8 +195,11 @@ var secondChart = $('#secondContainer');
 var firstChart = $('#chartContainer');
 
 function moveChart() {
-    firstChart.animate({'marginLeft' : "-=300px"}, 100);
-    firstChart.css("float", "left");
+    firstChart.animate({'marginLeft' : "-=350px"}, 100);
+    firstChart.css("display", "inline-block");
+    //firstChart.css("float", "left");
+    //firstChart.css("margin", "0 auto");
+    //chart.reflow();
     console.log('moveChart running');
 }
 
@@ -214,9 +220,9 @@ function setSecondChart(options) {
      // xAxis[0] since there is only 1 axis - setCategory sets categories from the array you pass it (options.categories - you use false so it doesn't automatically redraw THUS you use chart.redraw() after)
     chart2.redraw() // redraws chart
     
-    firstChart.css("marginLeft", "auto");
-    chart.redraw();
-    console.log('this is running');
+    //firstChart.css("marginLeft", "auto");
+    //chart.redraw();
+    //console.log('this is running');
     //console.log(firstChart.position())
     secondChart.css("visibility","visible");
 }
