@@ -40,7 +40,7 @@ function widthChange(mq) {
     }
 }
 
-var title = 'Commerce Data Service';
+var title = 'Projects';
     chartType = 'pie';
     subtitle = 'Click on a section to view more';
     colors = Highcharts.getOptions().colors;
