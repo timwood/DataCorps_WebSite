@@ -13,11 +13,15 @@ $(document).ready(function () {
  mq.addListener(widthChange);
  widthChange(mq);
 
+
+
 function widthChange(mq) {
     if (mq.matches) {
         console.log('should be mobile');
         $('#secondContainer').css("height", "250px");
+        $('#secondContainer').css('width', '400px')
         $('#chartContainer').css("height", "250px");
+        $('#chartContainer').css("width", '350px')
     }
     else {
         console.log('should be desktop');
@@ -332,67 +336,96 @@ chart = new Highcharts.Chart({
             point: {
                 events: {
                     click: function () {
+                        var drilldown = this.drilldown; // uses keyword 'this'
+                        var options; 
+                        mq.addListener(responsiveHighCharts);
+                        responsiveHighCharts(mq);
                         
+                        
+                        function responsiveHighCharts(mq) {
+                            if (mq.matches) {
+                                   // create variable to passed into setChart function
+                                    setTimeout(function() {
+                                        setSecondChart(options)
+                                    },700);
+                                    if (drilldown) { // drill down
+                                        options = {
+                                                'title': drilldown.title,
+                                                'subtitle': drilldown.subtitle,
+                                                'name': drilldown.name,
+                                                'categories': drilldown.categories,
+                                                'data': drilldown.data,
+                                                'type': chartType
+                                        };
+                                    } else { // restore to first level
+                                        options = {
+                                                'title': title,
+                                                'subtitle': subtitle,
+                                                'name': name,
+                                                'categories': categories,
+                                                'data': data,
+                                                'type': chartType
+                                            // return options;
+                                        };
+                                    }
 
-                        if (counter == 0) {
-                            counter++;
-                            moveChart();
-                            var drilldown = this.drilldown; // uses keyword 'this'
-                            var options; // create variable to passed into setChart function
-                            setTimeout(function() {
-                                setSecondChart(options)
-                            },700);
-                            if (drilldown) { // drill down
-                                options = {
-                                        'title': drilldown.title,
-                                        'subtitle': drilldown.subtitle,
-                                        'name': drilldown.name,
-                                        'categories': drilldown.categories,
-                                        'data': drilldown.data,
-                                        'type': chartType
-                                };
-                            } else { // restore to first level
-                                options = {
-                                        'title': title,
-                                        'subtitle': subtitle,
-                                        'name': name,
-                                        'categories': categories,
-                                        'data': data,
-                                        'type': chartType
-                                    // return options;
-                                };
-                            }
-                        } else {
-                            var drilldown = this.drilldown; // uses keyword 'this'
-                            var options; // create variable to passed into setChart function
-                            if (drilldown) { // drill down
-                                options = {
-                                        'title': drilldown.title,
-                                        'subtitle': drilldown.subtitle,
-                                        'name': drilldown.name,
-                                        'categories': drilldown.categories,
-                                        'data': drilldown.data,
-                                        'type': chartType
-                                };
-                            } else { // restore to first level
-                                options = {
-                                        'title': title,
-                                        'subtitle': subtitle,
-                                        'name': name,
-                                        'categories': categories,
-                                        'data': data,
-                                        'type': chartType
-                                    // return options;
-                                };
-                            }
-                            setSecondChart(options);
+                            } else {
+                                if (counter == 0) {
+                                    counter++;
+                                    moveChart();
+                                    //var drilldown = this.drilldown; // uses keyword 'this'
+                                    //var options; // create variable to passed into setChart function
+                                    setTimeout(function() {
+                                        setSecondChart(options)
+                                    },700);
+                                    if (drilldown) { // drill down
+                                        options = {
+                                                'title': drilldown.title,
+                                                'subtitle': drilldown.subtitle,
+                                                'name': drilldown.name,
+                                                'categories': drilldown.categories,
+                                                'data': drilldown.data,
+                                                'type': chartType
+                                        };
+                                    } else { // restore to first level
+                                        options = {
+                                                'title': title,
+                                                'subtitle': subtitle,
+                                                'name': name,
+                                                'categories': categories,
+                                                'data': data,
+                                                'type': chartType
+                                            // return options;
+                                        };
+                                    }
+                                } else {
+                                    //var drilldown = this.drilldown; // uses keyword 'this'
+                                    //var options; // create variable to passed into setChart function
+                                    if (drilldown) { // drill down
+                                        options = {
+                                                'title': drilldown.title,
+                                                'subtitle': drilldown.subtitle,
+                                                'name': drilldown.name,
+                                                'categories': drilldown.categories,
+                                                'data': drilldown.data,
+                                                'type': chartType
+                                        };
+                                    } else { // restore to first level
+                                        options = {
+                                                'title': title,
+                                                'subtitle': subtitle,
+                                                'name': name,
+                                                'categories': categories,
+                                                'data': data,
+                                                'type': chartType
+                                            // return options;
+                                        };
+                                    }
+                                    setSecondChart(options);
+                                }
+                            } //end of responsive else statement
                         }
-                            
-                            // console.log(options);
-                            // console.log(chart2);
-                            //setChart(options);
-                            //moveChart(options);
-                             // redraws the chart and initializes it
+
                     } //end of click
                 } // end of events
             }
