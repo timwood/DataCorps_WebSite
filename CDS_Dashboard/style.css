@@ -131,3 +131,13 @@ and (orientation : portrait) {
       height: 50%;
     }
 }
+
+@media only screen 
+and (max-device-width : 374px) 
+and (orientation : portrait) {
+  
+  div.close-modal {
+    float: none;
+    margin-bottom: 10px;
+  }
+}

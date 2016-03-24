@@ -18,10 +18,11 @@ $(document).ready(function () {
 function widthChange(mq) {
     if (mq.matches) {
         console.log('should be mobile');
+        $('.container').css('width', '550px')
         $('#secondContainer').css("height", "250px");
-        $('#secondContainer').css('width', '400px')
+        $('#secondContainer').css('width', '300px')
         $('#chartContainer').css("height", "250px");
-        $('#chartContainer').css("width", '350px')
+        $('#chartContainer').css("width", '300px')
     }
     else {
         console.log('should be desktop');
@@ -199,7 +200,7 @@ var secondChart = $('#secondContainer');
 var firstChart = $('#chartContainer');
 
 function moveChart() {
-    firstChart.animate({'marginLeft' : "-=350px"}, 100);
+    firstChart.animate({'marginLeft' : "-=300px"}, 100);
     firstChart.css("display", "inline-block");
     //firstChart.css("float", "left");
     //firstChart.css("margin", "0 auto");
