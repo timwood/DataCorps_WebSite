@@ -37,3 +37,12 @@
     opacity: 2.0;
     transform:scale(1);
 }*/
+
+.darken {
+  background-image: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url(../img/header.jpg);
+}
