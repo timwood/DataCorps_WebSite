@@ -1,16 +1,10 @@
 
-.image-carousel {
-    max-width: 600px;
-    margin: 0 auto;
-    height: auto;
-}
-
-.image-carousel img {
-    opacity: 0.8;
+div .slick-slide img {
+    opacity: 0.5;
     transform:scale(.90);
 }
 
-.slick-center img {
+div .slick-center img {
     opacity: 2.0;
     transform:scale(1);
 }

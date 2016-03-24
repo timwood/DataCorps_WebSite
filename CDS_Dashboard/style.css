@@ -131,9 +131,6 @@ and (orientation : portrait) {
       height: 50%;
     }
 
-    #secondContainer {
-      display: block;
-    }
 }
 
 @media only screen 

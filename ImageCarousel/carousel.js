@@ -1,11 +1,14 @@
 $(document).ready( function(){
 	$('.image-carousel').slick({
-		slidesToShow: 3,
+		infinite: false,
+		slidesToShow: 5,
 		slidesToScroll: 1,
 		autoplay: true,
-		autoplaySpeed: 2000,
-		infinite: false,
+		autoplaySpeed: 5000,
 		centerMode: true,
+		centerPadding: '50px',
+		pauseOnHover: false,
+		initialSlide: 3,
 		responsive: [
 		    {
 		      breakpoint: 1024,
