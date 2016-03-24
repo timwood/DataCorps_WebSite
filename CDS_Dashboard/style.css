@@ -130,6 +130,10 @@ and (orientation : portrait) {
     #chartContainer {
       height: 50%;
     }
+
+    #secondContainer {
+      display: block;
+    }
 }
 
 @media only screen 

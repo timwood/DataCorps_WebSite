@@ -8,10 +8,18 @@ $('#exampleModal').modal('hide');
 //var mq = window.matchMedia("(min-width: 600px)"); 
 
 
+
 $(document).ready(function () {
  var mq = window.matchMedia("(max-width: 600px)");
  mq.addListener(widthChange);
  widthChange(mq);
+
+ $(window).resize( function(mq) {
+    widthChange(mq);
+    chart.reflow();
+    chart2.reflow();
+    console.log('resizing');
+});
 
 
 
@@ -21,6 +29,7 @@ function widthChange(mq) {
         $('.container').css('width', '550px')
         $('#secondContainer').css("height", "250px");
         $('#secondContainer').css('width', '300px')
+        $('#secondContainer').css('display', 'block');
         $('#chartContainer').css("height", "250px");
         $('#chartContainer').css("width", '300px')
     }
