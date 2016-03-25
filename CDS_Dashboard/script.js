@@ -95,7 +95,8 @@ var title = 'Projects';
                 initiative: 'Commerce Data Academy',
                 services: 'UI/UX',
                 objective: 'Delivering Data Services',
-                modal: '#exampleModal'
+                modal: '#exampleModal',
+                picture: 'bureauLogos/DOC.png'
             }]
         }},
             {
@@ -115,7 +116,8 @@ var title = 'Projects';
                 initiative: 'BEA RIMS II',
                 services: 'UI/UX',
                 objective: 'Delivering Data Services',
-                modal: '#exampleModal'
+                modal: '#exampleModal',
+                picture: 'bureauLogos/BEA.jpg'
             }]
         }
             }, {
@@ -135,7 +137,8 @@ var title = 'Projects';
                 initiative: 'Commerce Interoperability Project',
                 services: 'Data Science, Back-End',
                 objective: 'Creating Data-Driven Government',
-                modal: '#exampleModal'
+                modal: '#exampleModal',
+                picture: 'bureauLogos/NIST.jpg'
             },  {
                 y: 1,
                 name: 'PTO',
@@ -143,7 +146,8 @@ var title = 'Projects';
                 initiative: 'Open Data Roadmap',
                 services: 'General',
                 objective: 'Fueling Economic Growth',
-                modal: '#exampleModal'
+                modal: '#exampleModal',
+                picture: 'bureauLogos/USPTO.jpg'
             }, {
                 y: 1,
                 name: 'ESA',
@@ -151,7 +155,8 @@ var title = 'Projects';
                 initiative: 'Commerce Data Advisory Council',
                 services: 'General',
                 objective: 'Fueling Economic Growth',
-                modal: 'exampleModal'
+                modal: 'exampleModal',
+                picture: 'bureauLogos/ESA.jpg'
             }, {
                 y: 1,
                 name: 'ITA',
@@ -159,7 +164,8 @@ var title = 'Projects';
                 initiative: 'Principal Tracker',
                 services: 'UI/UX, Back-End',
                 objective: 'Delivering Data Services',
-                modal: '#exampleModal'
+                modal: '#exampleModal',
+                picture: 'bureauLogos/ITA.jpg'
             }, {
                 y: 1,
                 name: 'ITA',
@@ -167,6 +173,7 @@ var title = 'Projects';
                 initiative: 'New Exporters Project',
                 services: 'Data Science',
                 objective: 'Fueling Economic Growth',
+                picture: 'bureauLogos/ITA.jpg'
             }]
         }
     }, {
@@ -185,21 +192,24 @@ var title = 'Projects';
                 color: '#00376a',
                 initiative: 'Income Inequality',
                 services: 'General',
-                objective: 'Fueling Economic Growth'
+                objective: 'Fueling Economic Growth',
+                picture: 'bureauLogos/CENSUS.jpg'
             }, {
                 y: 1,
                 name: 'DOC',
                 color: '#0057a9',
                 initiative: 'Commerce Data Usability Project',
                 services: 'UX/UI, Data Science, Back-End',
-                objective: 'Delivering Data Services'
+                objective: 'Delivering Data Services',
+                picture: 'bureauLogos/DOC.png'
             }, {
                 y: 1,
                 name: 'DOC',
                 color: '#0078e9',
                 initiative: 'Data.Commerce.Gov',
                 services: 'General',
-                objective: 'Fueling Economic Growth'
+                objective: 'Fueling Economic Growth',
+                picture: 'bureauLogos/DOC.png'
             }, {
                 y: 1, 
                 name: 'DOC',
@@ -207,6 +217,7 @@ var title = 'Projects';
                 initiative: 'White House Council of Women and Girls',
                 services: 'Data Science, UX/UI',
                 objective: 'Delivering Data Services',
+                picture: 'bureauLogos/DOC.png'
             }]
         }
     }];  // end of data property
@@ -288,9 +299,10 @@ function setSecondChart(options) {
 //Used to create the modals rather than 
 function createModal(series) {              
     $('#modalName').prepend('<p>' + "Bureau: " + series.name + '</p>');
-    $('#modalInitiative').prepend('<p>' + "Initiative: " + series.initiative + '</p>')
-    $('#modalServices').prepend('<p>' + "Services: " + series.services + '</p>')
-    $('#modalObjective').prepend('<p>' + "Objective: " + series.objective + '</p>')
+    $('#modalInitiative').prepend('<p>' + "Initiative: " + series.initiative + '</p>');
+    $('#modalServices').prepend('<p>' + "Services: " + series.services + '</p>');
+    $('#modalObjective').prepend('<p>' + "Objective: " + series.objective + '</p>');
+    $('#modalPicture').attr('src', series.picture);
     //$('#exampleModal p').css("color", "blue");
     $('#exampleModal').modal('show');
     console.log(series.name);
