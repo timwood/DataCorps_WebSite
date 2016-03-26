@@ -2,7 +2,9 @@
   -webkit-border-radius: 0 !important;
      -moz-border-radius: 0 !important;
           border-radius: 0 !important;
+          font: 'SourceSansProRegular','Open Sans','Helvetica Neue',Arial,sans-serif;
 }
+
 
 #secondContainer {
   display: inline-block;
@@ -66,6 +68,20 @@ div.modal {
 
 div.modal-content {
   padding-top: 20px;
+}
+
+#modalPicture {
+  display: inline-block; 
+  vertical-align: baseline;
+  margin: 90px 21px 50px 15px;
+}
+
+div#bureauInfo {
+  position:relative; 
+  display:inline-block;
+  vertical-align: top;
+  margin-top: 90px;
+  margin-bottom: 70px;
 }
 
 @media only screen 
