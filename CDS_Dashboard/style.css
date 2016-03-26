@@ -93,7 +93,7 @@ and (orientation : portrait) {
     div.close-modal {
       float: left;
       margin-right: 30px;
-      margin-bottom: 300px;
+      margin-bottom: 20px;
       position: static;
       top: 25px;
       right: 25px;
@@ -152,6 +152,20 @@ and (orientation : portrait) {
       height: 50%;
     }
 
+    #modalPicture {
+      display: inline-block; 
+      vertical-align: baseline;
+      margin: 10px 35px;
+    }
+
+    div#bureauInfo {
+      position:relative; 
+      display:inline-block;
+      vertical-align: top;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      margin-left: 25px;
+    }
 }
 
 @media only screen 
