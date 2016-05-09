@@ -7,7 +7,7 @@
 }
 
 .setYellowBackground {
-	background-color: #879bb9;
+	background-color: #002952;
 }
 
 .portfolio-modal .modal-content p {
@@ -21,6 +21,10 @@
 
 .modal-content {
   margin: 70px;
+}
+
+div.col-lg-4.col-md-4 {
+  padding-bottom: 200px;
 }
 
 /* This is the CSS for the close modal */
@@ -140,5 +144,9 @@ div.mix .pictureDiv {
 }
 
 .container .mix {
-	background-color: #879bb9;
+	background-color: #002952;
+}
+
+.our-team-title{
+  color: white;
 }
