@@ -56,7 +56,7 @@ function widthChange(mq, desktopMq, desktopMq2) {
         $('#chartContainer').css('width', '400px'); 
     } 
     else {
-        $('#secondContainer').css('width', '450px');
+        $('#secondContainer').css('width', '500px');
         $('#chartContainer').css('width', '500px');
     }
 }
@@ -249,34 +249,27 @@ function setChart(options) {
 var secondChart = $('#secondContainer'); 
 var firstChart = $('#chartContainer');
 
-// function moveChart() {
-//     if (mq.matches) {
-//         return 0
-//     } else if (desktopMq.matches) {
-//         firstChart.animate({'marginLeft' : '-=180px'}, 100);
-//         firstChart.css('display', 'inline-block');
-//     } else if (desktopMq2.matches) {
-//         firstChart.animate({'marginLeft' : "-=250px"}, 100);
-//         firstChart.css("display", "inline-block");
-//         //firstChart.css("float", "left");
-//         //firstChart.css("margin", "0 auto");
-//         //chart.reflow();
-//         console.log('moveChart running');
-//     } else {
-//         firstChart.animate({'marginLeft' : "-=300px"}, 100);
-//         firstChart.css("display", "inline-block");
-//         //firstChart.css("float", "left");
-//         //firstChart.css("margin", "0 auto");
-//         //chart.reflow();
-//         console.log('moveChart running');
-//     }   
-// }
-
 function moveChart() {
-    firstChart.css('transform', 'translate(-30px)');
-    firstChart.css('display', 'inline-block');
-    firstChart.removeClass('col-md-offset-3')
-
+    if (mq.matches) {
+        return 0
+    } else if (desktopMq.matches) {
+        firstChart.animate({'marginLeft' : '-=200px'}, 100);
+        firstChart.css('display', 'inline-block');
+    } else if (desktopMq2) {
+        firstChart.animate({'marginLeft' : "-=250px"}, 100);
+        firstChart.css("display", "inline-block");
+        //firstChart.css("float", "left");
+        //firstChart.css("margin", "0 auto");
+        //chart.reflow();
+        console.log('moveChart running');
+    } else {
+        firstChart.animate({'marginLeft' : "-=300px"}, 100);
+        firstChart.css("display", "inline-block");
+        //firstChart.css("float", "left");
+        //firstChart.css("margin", "0 auto");
+        //chart.reflow();
+        console.log('moveChart running');
+    }   
 }
 
 function setSecondChart(options) {
