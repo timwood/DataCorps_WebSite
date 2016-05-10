@@ -305,8 +305,6 @@ function createModal(series) {
     $('#modalPicture').attr('src', series.picture);
     //$('#exampleModal p').css("color", "blue");
     $('#exampleModal').modal('show');
-    console.log(series.name);
-    console.log(series);
     clearModal();
 }
 
@@ -651,6 +649,9 @@ chart2 = new Highcharts.Chart({
     }, //end of plotOptions
     tooltip: {
         formatter: function () {
+            if (mq.matches) {
+                s = 'Please learn more from our pop-up'
+            } else {
             var point = this.point, // sets keyword 'this' -- this.point is really series.data
                 s = point.name + ': ' + point.list + '. '; //formats pointer
             if (point.deepDrill) {
@@ -669,6 +670,8 @@ chart2 = new Highcharts.Chart({
                     'Services: ' + point.services + '<br/>' +
                     'Objective: ' + point.objective + '<br/>' + '<br/>' +
                     '<em>' + 'Click to return home' + '</em>';
+                }
+            
             }
             return s;
         }
