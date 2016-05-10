@@ -10,14 +10,14 @@ $('#exampleModal').modal('hide');
 
 
 $(document).ready(function () {
- // var mq = window.matchMedia("(max-width: 600px)");
- // var desktopMq = window.matchMedia("(max-width: 800px)");
- // var desktopMq2 = window.matchMedia('(max-width: 1290px)');
- // mq.addListener(widthChange);
- // desktopMq.addListener(widthChange);
- // desktopMq2.addListener(widthChange)
+ var mq = window.matchMedia("(max-width: 600px)");
+ var desktopMq = window.matchMedia("(max-width: 800px)");
+ var desktopMq2 = window.matchMedia('(max-width: 1290px)');
+ mq.addListener(widthChange);
+ desktopMq.addListener(widthChange);
+ desktopMq2.addListener(widthChange)
  
- // widthChange(mq, desktopMq, desktopMq2);
+ widthChange(mq, desktopMq, desktopMq2);
 
   
 
@@ -34,32 +34,32 @@ $(document).ready(function () {
 //     }
 // }
 
-// function widthChange(mq, desktopMq, desktopMq2) {
-//     if (mq.matches) {
-//         console.log('should be mobile');
-//         $('.container').css('width', '550px')
-//         $('#secondContainer').css("height", "250px");
-//         $('#secondContainer').css('width', '300px');
-//         $('#secondContainer').css('display', 'block');
-//         $('#chartContainer').css("height", "250px");
-//         $('#chartContainer').css("width", '300px');
-//     } else if (desktopMq.matches) {
-//         console.log('should be desktop');
-//         $('#secondContainer').css("height", "500px");
-//         $('#secondContainer').css('width', '300px');
-//         $('#chartContainer').css("height", "500px");
-//         $('#chartContainer').css('width', '350px');
-//     } else if (desktopMq2.matches) {
-//         $('#secondContainer').css("height", "500px");
-//         $('#secondContainer').css('width', '350px');
-//         $('#chartContainer').css("height", "500px");
-//         $('#chartContainer').css('width', '400px'); 
-//     } 
-//     else {
-//         $('#secondContainer').css('width', '450px');
-//         $('#chartContainer').css('width', '500px');
-//     }
-// }
+function widthChange(mq, desktopMq, desktopMq2) {
+    if (mq.matches) {
+        console.log('should be mobile');
+        $('.container').css('width', '550px')
+        $('#secondContainer').css("height", "250px");
+        $('#secondContainer').css('width', '300px');
+        $('#secondContainer').css('display', 'block');
+        $('#chartContainer').css("height", "250px");
+        $('#chartContainer').css("width", '300px');
+    } else if (desktopMq.matches) {
+        console.log('should be desktop');
+        $('#secondContainer').css("height", "500px");
+        $('#secondContainer').css('width', '300px');
+        $('#chartContainer').css("height", "500px");
+        $('#chartContainer').css('width', '350px');
+    } else if (desktopMq2.matches) {
+        $('#secondContainer').css("height", "500px");
+        $('#secondContainer').css('width', '350px');
+        $('#chartContainer').css("height", "500px");
+        $('#chartContainer').css('width', '400px'); 
+    } 
+    else {
+        $('#secondContainer').css('width', '450px');
+        $('#chartContainer').css('width', '500px');
+    }
+}
 
 // function widthDesktopChange(desktopMq) {
 //     if (desktopMq.matches) {
@@ -249,35 +249,35 @@ function setChart(options) {
 var secondChart = $('#secondContainer'); 
 var firstChart = $('#chartContainer');
 
-function moveChart() {
-    if (mq.matches) {
-        return 0
-    } else if (desktopMq.matches) {
-        firstChart.animate({'marginLeft' : '-=180px'}, 100);
-        firstChart.css('display', 'inline-block');
-    } else if (desktopMq2.matches) {
-        firstChart.animate({'marginLeft' : "-=250px"}, 100);
-        firstChart.css("display", "inline-block");
-        //firstChart.css("float", "left");
-        //firstChart.css("margin", "0 auto");
-        //chart.reflow();
-        console.log('moveChart running');
-    } else {
-        firstChart.animate({'marginLeft' : "-=300px"}, 100);
-        firstChart.css("display", "inline-block");
-        //firstChart.css("float", "left");
-        //firstChart.css("margin", "0 auto");
-        //chart.reflow();
-        console.log('moveChart running');
-    }   
-}
-
 // function moveChart() {
-//     firstChart.css('transform', 'translate(-30px)');
-//     firstChart.css('display', 'inline-block');
-//     firstChart.removeClass('col-md-offset-3')
-
+//     if (mq.matches) {
+//         return 0
+//     } else if (desktopMq.matches) {
+//         firstChart.animate({'marginLeft' : '-=180px'}, 100);
+//         firstChart.css('display', 'inline-block');
+//     } else if (desktopMq2.matches) {
+//         firstChart.animate({'marginLeft' : "-=250px"}, 100);
+//         firstChart.css("display", "inline-block");
+//         //firstChart.css("float", "left");
+//         //firstChart.css("margin", "0 auto");
+//         //chart.reflow();
+//         console.log('moveChart running');
+//     } else {
+//         firstChart.animate({'marginLeft' : "-=300px"}, 100);
+//         firstChart.css("display", "inline-block");
+//         //firstChart.css("float", "left");
+//         //firstChart.css("margin", "0 auto");
+//         //chart.reflow();
+//         console.log('moveChart running');
+//     }   
 // }
+
+function moveChart() {
+    firstChart.css('transform', 'translate(-30px)');
+    firstChart.css('display', 'inline-block');
+    firstChart.removeClass('col-md-offset-3')
+
+}
 
 function setSecondChart(options) {
     chart2.setTitle({
