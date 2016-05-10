@@ -146,3 +146,29 @@ div.mix .pictureDiv {
 .container .mix {
 	background-color: #879bb9;
 }
+
+@media only screen 
+and (max-device-width : 768px) 
+and (orientation : portrait) {
+  div.modal-content {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  div.modal-content .close-modal {
+    padding-left: 0px;
+    height: 50px;
+  }
+
+  div.modal-content .close-modal .lr {
+    height: 35px;
+  }
+
+  div.modal-content .close-modal .lr .rl {
+    height: 35px;
+  }
+
+  div.modal-content .col-lg-4.col-md-4 {
+    padding-bottom: 20px;
+  }
+}
