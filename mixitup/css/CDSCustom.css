@@ -168,7 +168,7 @@ and (orientation : portrait) {
     height: 35px;
   }
 
-  div.modal-content .col-lg-4.col-md-4 {
+  div.col-lg-4.col-md-4.col-sm-4 {
     padding-bottom: 20px;
   }
 }
