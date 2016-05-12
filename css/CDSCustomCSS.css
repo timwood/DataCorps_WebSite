@@ -31,3 +31,34 @@
     ),
     url(../img/header.jpg);
 }
+
+
+/* This is the for the mobile icons to show as DoC IT would like them to show
+ */
+#mobile-menu .region-mobile-menu .block-menu-engage-follow span.title {
+  display: none;
+}
+
+.region-mobile-menu .block-menu-engage-follow ul.menu {
+  text-align: center;
+}
+.region-mobile-menu .block-menu-engage-follow ul.menu li {
+  display: inline-block;
+}
+.region-mobile-menu .block-menu-engage-follow ul.menu li a {
+  border: none !important;
+  text-align: center;
+  background: none;
+}
+.region-mobile-menu .block-menu-engage-follow ul.menu li a:hover {
+  background: none;
+  color: inherit;
+}
+.region-mobile-menu .block-menu-engage-follow ul.menu li a:before, .region-mobile-menu .block-menu-engage-follow ul.menu li .polyfill-icon {
+  margin-right: 0;
+  color: green;
+}
+
+.mobileIconDiv span {
+  display: none;
+}
