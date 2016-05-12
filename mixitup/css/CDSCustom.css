@@ -1,3 +1,4 @@
+
 .setWhiteBackground {
 	background-color: white;
 }
@@ -6,8 +7,8 @@
 	background-color: #002952;
 }
 
-.setYellowBackground {
-	background-color: #879bb9;
+.container .mix {
+  background-color: #002952;
 }
 
 .portfolio-modal .modal-content p {
@@ -136,15 +137,6 @@ div.modalTextStyles {
   .container {
     width: 800px;
   }
-}
-
-
-div.mix .pictureDiv {
-	background-color: blue;
-}
-
-.container .mix {
-	background-color: #879bb9;
 }
 
 @media only screen 
