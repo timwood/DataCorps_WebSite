@@ -437,7 +437,7 @@ chart = new Highcharts.Chart({
                     'Initiative: ' + point.initiative + '<br/>' +
                     'Services: ' + point.services + '<br/>' +
                     'Objective: ' + point.objective + '<br/>' + '<br/>' +
-                    '<em>' + 'Click to return home' + '</em>';
+                    '<em>' + 'Click to Learn More' + '</em>';
             }
             return s;
         }
@@ -531,7 +531,7 @@ chart2 = new Highcharts.Chart({
                     'Initiative: ' + point.initiative + '<br/>' +
                     'Services: ' + point.services + '<br/>' +
                     'Objective: ' + point.objective + '<br/>' + '<br/>' +
-                    '<em>' + 'Click to return home' + '</em>';
+                    '<em>' + 'Click to Learn More' + '</em>';
                 }
             
             }
