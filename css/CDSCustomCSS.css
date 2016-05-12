@@ -19,6 +19,10 @@
     color: black;
 }
 
+.setBlueBackground {
+  background-color: #002952;
+}
+
 .our-team-title{
   color: white;
 }

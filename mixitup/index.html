@@ -2,30 +2,33 @@
 <html >
   <head>
     <meta charset="UTF-8">
+    <html lang="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">   
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/cds_pop.css">
-        <link rel="stylesheet" type="text/css" href="css/CDSCustom.css">  
+        <link rel="stylesheet" type="text/css" href="css/MixItUpCustom.css">  
   </head>
 
   <body class="setBlueBackground" id="topOfBox" >
-
+  <div class="container">
+    <div class="row">
     <form class=" controls " id="Filters">
 
         <div id= "topofFrame" height="30px"></div>
 
-            <div class="container ">
+            <div class="">
 
-                <div class="row">
+                <div class="">
                     <div class="col-lg-12 col-md-12 col-sm-12 text-center">
                         <fieldset>
                             <button class="filter" data-filter=".dev">Development</button>
                             <button class="filter" data-filter=".datasci">Data Science</button>
                             <button class="filter" data-filter=".lead">Leadership</button>
                             <button class="filter" data-filter=".edu">Education</button>
-                            <button class="filter" data-filter=".supp">Support</button>
+                            <button class="filter" data-filter=".office">Office</button>
                         </fieldset>
                         <button id="Reset" style="background:darkred;color:white">Clear Filters</button>
                     </div>     
@@ -102,7 +105,7 @@
               <img  src="BioPics/ComingSoon.jpg" width="100%" alt="Pam Moulder" class="img-circle">
             </a>
         </div>
-        <div class=" mix supp " >
+        <div class=" mix office " >
             <a href="#Burton"  data-toggle="modal">
               <img  src="BioPics/Burton.jpg" width="100%" alt="Burton Reist" class="img-circle">
             </a>
@@ -117,7 +120,7 @@
                   <img src="BioPics/alison.png" width="100%" alt="Alison Rowland" class="img-circle">
               </a>
         </div>
-        <div class="mix supp " >
+        <div class="mix office " >
               <a href="#Tonja" data-toggle="modal">
                   <img src="BioPics/ComingSoon.jpg" width="100%" alt="Tonja White" class="img-circle">
               </a>
@@ -797,7 +800,9 @@
     </div>
 
 
-      
+    
+    </div>
+    </div>
         <script src='js/jquery.js'></script>
         <script src='js/jquery.mixitup.js'></script>
         <script src='js/bootstrap.js'></script>

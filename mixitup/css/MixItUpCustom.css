@@ -73,14 +73,14 @@ div.modalTextStyles {
   .ie10up
   .container .mix,
   .container .gap{
-    width: 16%;
+    width: 24%;
   }
 }
 
 @media all and (min-width: 320px) {
   .container .mix,
   .container .gap{
-    width: 24%;
+    width: 26%;
   }
 }
 
@@ -105,14 +105,14 @@ div.modalTextStyles {
   .ie10up
   .container .mix,
   .container .gap{
-    width: 19%;
+    width: 17.5%;
   }
 }
 
 @media all and (min-width: 640px) {
   .container .mix,
   .container .gap{
-    width: 18%;
+    width: 17.5%;
   }
 }
 
@@ -140,8 +140,9 @@ div.modalTextStyles {
 }
 
 @media only screen 
-and (max-device-width : 768px) 
+and (max-width : 480px) 
 and (orientation : portrait) {
+  
   div.modal-content {
     margin-left: 5px;
     margin-right: 5px;
