@@ -1,3 +1,4 @@
+
 .setWhiteBackground {
 	background-color: white;
 }
@@ -6,8 +7,8 @@
 	background-color: #002952;
 }
 
-.setYellowBackground {
-	background-color: #002952;
+.container .mix {
+  background-color: #002952;
 }
 
 .portfolio-modal .modal-content p {
@@ -72,14 +73,14 @@ div.modalTextStyles {
   .ie10up
   .container .mix,
   .container .gap{
-    width: 16%;
+    width: 24%;
   }
 }
 
 @media all and (min-width: 320px) {
   .container .mix,
   .container .gap{
-    width: 24%;
+    width: 26%;
   }
 }
 
@@ -104,14 +105,14 @@ div.modalTextStyles {
   .ie10up
   .container .mix,
   .container .gap{
-    width: 19%;
+    width: 17.5%;
   }
 }
 
 @media all and (min-width: 640px) {
   .container .mix,
   .container .gap{
-    width: 18%;
+    width: 17.5%;
   }
 }
 
@@ -138,15 +139,29 @@ div.modalTextStyles {
   }
 }
 
+@media only screen 
+and (max-width : 480px) 
+and (orientation : portrait) {
+  
+  div.modal-content {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 
-div.mix .pictureDiv {
-	background-color: blue;
-}
+  div.modal-content .close-modal {
+    padding-left: 0px;
+    height: 50px;
+  }
 
-.container .mix {
-	background-color: #002952;
-}
+  div.modal-content .close-modal .lr {
+    height: 35px;
+  }
 
-.our-team-title{
-  color: white;
+  div.modal-content .close-modal .lr .rl {
+    height: 35px;
+  }
+
+  div.col-lg-4.col-md-4.col-sm-4 {
+    padding-bottom: 20px;
+  }
 }
