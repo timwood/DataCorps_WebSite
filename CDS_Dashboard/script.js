@@ -48,50 +48,50 @@ var title = 'Projects';
     name = 'Groups';
     subtitle2 = 'Click section to Learn More';
     data = [{
-        y: 2, // this is to determine how big the slice of the pie you want for this item
+        y: 1, // this is to determine how big the slice of the pie you want for this item
         name: 'Pre-Discovery', // this is the top group - used in  328, 339 for tool tip and resetting
         color: '#6bad50', // decide color for the slice
-        list: 'DOC, BEA',
+        list: 'NOAA',
         // THIS BEGINS THE NEXT DRILLDOWN - for deeper drilldowns you create another object in the 'data' property
         drilldown: {
             title: 'Pre-Discovery Clients', // title at top of drill down
             subtitle: subtitle2, // can set subtitle here or you can use the one made above
             name: 'Users', // Way to organize your drilldowns based on info, doesn't show up in graph
-            categories: ['DOC'], // Line 227 uses this category to make X Axis
+            categories: ['NOAA'], // Line 227 uses this category to make X Axis
             data: [{
                 y: 1, // setting this to 0 makes it disappear
-                name: 'DOC',
+                name: 'NOAA',
                 color: '#6bad50',
-                initiative: 'Commerce Data Academy',
-                services: 'UI/UX',
+                initiative: 'Data Labs',
+                services: 'UI/UX, Back-End',
                 objective: 'Delivering Data Services',
                 modal: '#exampleModal',
-                picture: 'bureauLogos/DOC.png'
+                picture: 'bureauLogos/NOAA.jpg'
             }]
         }},
             {
         y: 1,
         name: 'Discovery',
         color: '#dee58c',
-        list: 'BEA',
+        list: 'DOC',
         drilldown: {
             title: 'Discovery Clients',
             subtitle: subtitle2,
             name: 'Users',
-            categories: ['BEA'],
+            categories: ['DOC'],
             data: [{
                 y: 1,
-                name: 'BEA',
+                name: 'DOC',
                 color: '#C5CB7C',
-                initiative: 'BEA RIMS II',
-                services: 'UI/UX',
-                objective: 'Delivering Data Services',
+                initiative: 'OMG CAP Project',
+                services: 'UI/UX, Data Science',
+                objective: 'Creating Data Driven Government',
                 modal: '#exampleModal',
-                picture: 'bureauLogos/BEA.jpg'
+                picture: 'bureauLogos/DOC.jpg'
             }]
         }
             }, {
-        y: 5,
+        y: 6,
         name: 'In-Progress',
         color: '#006c79',
         list: 'ITA, NIST, PTO, ESA',
@@ -104,12 +104,21 @@ var title = 'Projects';
                 y: 1,
                 name: 'NIST',
                 color: '#00555f',
-                initiative: 'Commerce Interoperability Project',
+                initiative: 'NetZero',
                 services: 'Data Science, Back-End',
                 objective: 'Creating Data-Driven Government',
                 modal: '#exampleModal',
                 picture: 'bureauLogos/NIST.jpg'
-            },  {
+            }, {
+                y: 1,
+                name: 'NIST',
+                color: '#00b0c5',
+                initiative:'MEP',
+                services: 'Data Science, Back-End',
+                objective: 'Creating Data-Driven Government',
+                modal: '#exampleModal',
+                picture: 'bureauLogos/NIST.jpg'
+            }, {
                 y: 1,
                 name: 'PTO',
                 color: '#007786',
@@ -118,15 +127,6 @@ var title = 'Projects';
                 objective: 'Fueling Economic Growth',
                 modal: '#exampleModal',
                 picture: 'bureauLogos/USPTO.jpg'
-            }, {
-                y: 1,
-                name: 'ESA',
-                color: '#00b0c5',
-                initiative: 'Commerce Data Advisory Council',
-                services: 'General',
-                objective: 'Fueling Economic Growth',
-                modal: 'exampleModal',
-                picture: 'bureauLogos/ESA.jpg'
             }, {
                 y: 1,
                 name: 'ITA',
@@ -144,18 +144,27 @@ var title = 'Projects';
                 services: 'Data Science',
                 objective: 'Fueling Economic Growth',
                 picture: 'bureauLogos/ITA.jpg'
+            }, {
+                y: 1,
+                name: 'BEA',
+                color: '#007786',
+                initiative: 'BEA RIMS II',
+                services: 'UI/UX',
+                objective: 'Delivering Data Services',
+                modal: '#exampleModal',
+                picture: 'bureauLogos/BEA.jpg'
             }]
         }
     }, {
-        y: 4,
+        y: 6,
         name: 'Complete',
         color: '#00305d',
-        list: 'DOC, CENSUS',
+        list: 'DOC, CENSUS, ESA',
         drilldown: {
             title: 'Complete Projects',
             subtitle: subtitle2,
             name: 'Users',
-            categories: ['DOC, CENSUS'],
+            categories: ['DOC', 'CENSUS', 'ESA'],
             data: [{
                 y: 1,
                 name: 'CENSUS',
@@ -163,7 +172,8 @@ var title = 'Projects';
                 initiative: 'Income Inequality',
                 services: 'General',
                 objective: 'Fueling Economic Growth',
-                picture: 'bureauLogos/CENSUS.jpg'
+                picture: 'bureauLogos/CENSUS.jpg',
+                web: 'https://midaas.commerce.gov/'
             }, {
                 y: 1,
                 name: 'DOC',
@@ -171,7 +181,8 @@ var title = 'Projects';
                 initiative: 'Commerce Data Usability Project',
                 services: 'UX/UI, Data Science, Back-End',
                 objective: 'Delivering Data Services',
-                picture: 'bureauLogos/DOC.png'
+                picture: 'bureauLogos/DOC.png',
+                web: 'https://www.commerce.gov/datausability/'
             }, {
                 y: 1,
                 name: 'DOC',
@@ -179,7 +190,8 @@ var title = 'Projects';
                 initiative: 'Data.Commerce.Gov',
                 services: 'General',
                 objective: 'Fueling Economic Growth',
-                picture: 'bureauLogos/DOC.png'
+                picture: 'bureauLogos/DOC.png',
+                web: 'https://data.commerce.gov/'
             }, {
                 y: 1, 
                 name: 'DOC',
@@ -188,6 +200,24 @@ var title = 'Projects';
                 services: 'Data Science, UX/UI',
                 objective: 'Delivering Data Services',
                 picture: 'bureauLogos/DOC.png'
+            }, {
+                y: 1,
+                name: 'DOC',
+                color: '#293479',
+                initiative: 'Commerce Data Academy',
+                services: 'General',
+                objective: 'Creating Data Driven Government',
+                picture: 'bureauLogos/DOC.png',
+                web: 'https://dataacademy.commerce.gov/'
+            }, {
+                y: 1,
+                name: 'ESA',
+                color: '#5A91C5',
+                initiative: 'Commerce Data Advisory Council (CDAC)',
+                services: 'General',
+                objective: 'Fueling Economic Growth',
+                picture: 'bureauLogos/ESA.jpg',
+                web: 'http://www.esa.gov/cdac/'
             }]
         }
     }];  // end of data property
@@ -247,11 +277,6 @@ function setSecondChart(options) {
     }, false); // adds the series (which contains the data) - we pass it a new object and tell it false so it doesn't automatically re-render
      // xAxis[0] since there is only 1 axis - setCategory sets categories from the array you pass it (options.categories - you use false so it doesn't automatically redraw THUS you use chart.redraw() after)
     chart2.redraw() // redraws chart
-    
-    //firstChart.css("marginLeft", "auto");
-    //chart.redraw();
-    //console.log('this is running');
-    //console.log(firstChart.position())
     secondChart.css("visibility","visible");
 }
 
@@ -262,7 +287,11 @@ function createModal(series) {
     $('#modalServices').prepend('<p>' + "Services: " + series.services + '</p>');
     $('#modalObjective').prepend('<p>' + "Objective: " + series.objective + '</p>');
     $('#modalPicture').attr('src', series.picture);
-    //$('#exampleModal p').css("color", "blue");
+    if (series.web) {
+        $('#modalWebsite').prepend('<p>' + series.web + '</p>');
+        $('#modalWebsite').attr('href', series.web);
+        $('#modalWebsite').attr('target', "_blank")
+    }
     $('#exampleModal').modal('show');
     clearModal();
 }
@@ -270,7 +299,6 @@ function createModal(series) {
 //Clears the modal so if double-clicked the information won't show up twice
 function clearModal() {
     $('.close-modal').click(function() {
-        //console.log('hi');
         $('#modalName').empty();
         $('#modalInitiative').empty();
         $('#modalServices').empty();
