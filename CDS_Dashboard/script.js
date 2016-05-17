@@ -10,33 +10,42 @@ $(document).ready( function() {
  mq.addListener(widthChange);
  desktopMq.addListener(widthChange);
  desktopMq2.addListener(widthChange);
- 
+ $container = $('.container');
+ var secondChart = $('#secondContainer'); 
+ var firstChart = $('#chartContainer');
+ var $modalName = $('#modalName');
+ var $modalInitiative = $('#modalInitiative');
+ var $modalServices = $('#modalServices');
+ var $modalObjective = $('#modalObjective');
+ var $modalPicture = $('#modalPicture');
+ var $modalWebsite = $('#modalWebsite');
+ var $exampleModal = $('#exampleModal');
+ var $closeModal = $('.close-modal');
+
  widthChange(mq, desktopMq, desktopMq2);
 
 function widthChange(mq, desktopMq, desktopMq2) {
     if (mq.matches) {
-        console.log('should be mobile');
-        $('.container').css('width', '550px')
-        $('#secondContainer').css("height", "250px");
-        $('#secondContainer').css('width', '300px');
-        $('#secondContainer').css('display', 'block');
-        $('#chartContainer').css("height", "250px");
-        $('#chartContainer').css("width", '300px');
+        $container.css('width', '550px')
+        secondChart.css("height", "250px");
+        secondChart.css('width', '300px');
+        secondChart.css('display', 'block');
+        firstChart.css("height", "250px");
+        firstChart.css("width", '300px');
     } else if (desktopMq.matches) {
-        console.log('should be desktop');
-        $('#secondContainer').css("height", "500px");
-        $('#secondContainer').css('width', '300px');
-        $('#chartContainer').css("height", "500px");
-        $('#chartContainer').css('width', '350px');
+        secondChart.css("height", "500px");
+        secondChart.css('width', '300px');
+        firstChart.css("height", "500px");
+        firstChart.css('width', '350px');
     } else if (desktopMq2.matches) {
-        $('#secondContainer').css("height", "500px");
-        $('#secondContainer').css('width', '350px');
-        $('#chartContainer').css("height", "500px");
-        $('#chartContainer').css('width', '400px'); 
+        secondChart.css("height", "500px");
+        secondChart.css('width', '350px');
+        firstChart.css("height", "500px");
+        firstChart.css('width', '400px'); 
     } 
     else {
-        $('#secondContainer').css('width', '500px');
-        $('#chartContainer').css('width', '500px');
+        secondChart.css('width', '500px');
+        firstChart.css('width', '500px');
     }
 }
 
@@ -240,8 +249,6 @@ function setChart(options) {
     chart.redraw() // redraws chart
 }
 
-var secondChart = $('#secondContainer'); 
-var firstChart = $('#chartContainer');
 
 function moveChart() {
     if (mq.matches) {
@@ -282,27 +289,28 @@ function setSecondChart(options) {
 
 //Used to create the modals rather than 
 function createModal(series) {              
-    $('#modalName').prepend('<p>' + "Bureau: " + series.name + '</p>');
-    $('#modalInitiative').prepend('<p>' + "Initiative: " + series.initiative + '</p>');
-    $('#modalServices').prepend('<p>' + "Services: " + series.services + '</p>');
-    $('#modalObjective').prepend('<p>' + "Objective: " + series.objective + '</p>');
-    $('#modalPicture').attr('src', series.picture);
+    $modalName.prepend('<p>' + "Bureau: " + series.name + '</p>');
+    $modalInitiative.prepend('<p>' + "Initiative: " + series.initiative + '</p>');
+    $modalServices.prepend('<p>' + "Services: " + series.services + '</p>');
+    $modalObjective.prepend('<p>' + "Objective: " + series.objective + '</p>');
+    $modalPicture.attr('src', series.picture);
     if (series.web) {
-        $('#modalWebsite').prepend('<p>' + series.web + '</p>');
-        $('#modalWebsite').attr('href', series.web);
-        $('#modalWebsite').attr('target', "_blank")
+        $modalWebsite.prepend('<p>' + series.web + '</p>');
+        $modalWebsite.attr('href', series.web);
+        $modalWebsite.attr('target', "_blank")
     }
-    $('#exampleModal').modal('show');
+    $exampleModal.modal('show');
     clearModal();
 }
 
 //Clears the modal so if double-clicked the information won't show up twice
 function clearModal() {
-    $('.close-modal').click(function() {
-        $('#modalName').empty();
-        $('#modalInitiative').empty();
-        $('#modalServices').empty();
-        $('#modalObjective').empty();
+    $closeModal.click(function() {
+        $modalName.empty();
+        $modalInitiative.empty();
+        $modalServices.empty();
+        $modalObjective.empty();
+        $modalWebsite.empty();
     });
 }
 
@@ -388,8 +396,6 @@ chart = new Highcharts.Chart({
                                 if (counter == 0) {
                                     counter++;
                                     moveChart();
-                                    //var drilldown = this.drilldown; // uses keyword 'this'
-                                    //var options; // create variable to passed into setChart function
                                     setTimeout(function() {
                                         setSecondChart(options)
                                     },700);
