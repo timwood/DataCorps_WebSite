@@ -550,4 +550,90 @@ chart2 = new Highcharts.Chart({
     },
 }); // end of chart = new Highcharts.Chart()
 
+function chartTemplate() {
+    this.chart = {
+            type: 'bar'
+        };
+        title: {
+            text: 'Fruit Consumption'
+        };
+        xAxis: {
+            categories: ['Apples', 'Bananas', 'Oranges']
+        };
+        yAxis: {
+            title: {
+                text: 'Fruit eaten'
+            }
+        };
+        series: [{
+            name: 'Jane',
+            data: [1, 0, 4]
+        }, {
+            name: 'John',
+            data: [5, 7, 3]
+        }]
+    }
+
+function ChartThree() {
+    this.chart = {
+        title: {
+            text: 'Real Dogs'
+        }
+    }
+}
+
+ChartThree.prototype = new chartTemplate();
+
+var chart4 = new ChartThree;
+console.log(chart4);
+$('#thirdContainer').highcharts(chart4);
+
 }); // end of document.ready()
+
+
+////////////////////////////////
+// Animal (Parent) Class
+////////////////////////////////
+function Animal( name ){
+  this.name = name;
+}
+
+Animal.prototype.kingdom = "Animalia";
+Animal.prototype.breathe = function() {console.log("Inhale... exhale...")};
+
+
+////////////////////////////////
+// HELLO THIS IS DOG
+////////////////////////////////
+function Dog(name, breed){
+  this.name = name;
+  this.breed = breed;
+}
+
+// Important! Set up the link in the prototype chain connecting Dogs to Animals
+Dog.prototype = new Animal();
+
+// Add any methods / properties shared by all dogs.
+Dog.prototype.bark = function(){ console.log("Woof")};
+Dog.prototype.species = "Canis canis"
+
+////////////////////////////////
+// Testing our dawgs
+////////////////////////////////
+var spot = new Dog("Spot", "Beagle");
+
+// from Animal prototype
+spot.kingdom;
+spot.breathe();
+
+// from Dog prototype
+spot.bark();
+spot.species;
+
+// from Dog properties
+spot.name;
+spot.breed;
+
+console.log("Animal " + Animal());
+console.log("Dog " + Dog());
+console.log("spot " + spot);
