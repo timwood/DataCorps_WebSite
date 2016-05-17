@@ -21,6 +21,7 @@ $(document).ready( function() {
  var $modalWebsite = $('#modalWebsite');
  var $exampleModal = $('#exampleModal');
  var $closeModal = $('.close-modal');
+ var counter = 0;
 
  widthChange(mq, desktopMq, desktopMq2);
 
@@ -96,7 +97,7 @@ var title = 'Projects';
                 services: 'UI/UX, Data Science',
                 objective: 'Creating Data Driven Government',
                 modal: '#exampleModal',
-                picture: 'bureauLogos/DOC.jpg'
+                picture: 'bureauLogos/DOC.png'
             }]
         }
             }, {
@@ -314,7 +315,29 @@ function clearModal() {
     });
 }
 
-var counter = 0;
+function buildOptions(drilldown, options) {
+    if (drilldown) { // drill down
+        options = {
+                'title': drilldown.title,
+                'subtitle': drilldown.subtitle,
+                'name': drilldown.name,
+                'categories': drilldown.categories,
+                'data': drilldown.data,
+                'type': chartType
+        };
+    } else { // restore to first level
+        options = {
+                'title': title,
+                'subtitle': subtitle,
+                'name': name,
+                'categories': categories,
+                'data': data,
+                'type': chartType
+            // return options;
+        };
+    }
+    return options
+}
 
 chart = new Highcharts.Chart({
     credits: {
@@ -366,82 +389,26 @@ chart = new Highcharts.Chart({
                         
                         
                         function responsiveHighCharts(mq) {
+                            
+                            console.log(options);
                             if (mq.matches) {
                                    // create variable to passed into setChart function
                                     setTimeout(function() {
+                                        console.log(options);
                                         setSecondChart(options)
                                     },700);
-                                    if (drilldown) { // drill down
-                                        options = {
-                                                'title': drilldown.title,
-                                                'subtitle': drilldown.subtitle,
-                                                'name': drilldown.name,
-                                                'categories': drilldown.categories,
-                                                'data': drilldown.data,
-                                                'type': chartType
-                                        };
-                                    } else { // restore to first level
-                                        options = {
-                                                'title': title,
-                                                'subtitle': subtitle,
-                                                'name': name,
-                                                'categories': categories,
-                                                'data': data,
-                                                'type': chartType
-                                            // return options;
-                                        };
-                                    }
+                                    options = buildOptions(drilldown, options);
 
                             } else {
                                 if (counter == 0) {
                                     counter++;
                                     moveChart();
-                                    setTimeout(function() {
+                                    setTimeout( function() {
                                         setSecondChart(options)
                                     },700);
-                                    if (drilldown) { // drill down
-                                        options = {
-                                                'title': drilldown.title,
-                                                'subtitle': drilldown.subtitle,
-                                                'name': drilldown.name,
-                                                'categories': drilldown.categories,
-                                                'data': drilldown.data,
-                                                'type': chartType
-                                        };
-                                    } else { // restore to first level
-                                        options = {
-                                                'title': title,
-                                                'subtitle': subtitle,
-                                                'name': name,
-                                                'categories': categories,
-                                                'data': data,
-                                                'type': chartType
-                                            // return options;
-                                        };
-                                    }
+                                    options = buildOptions(drilldown, options);
                                 } else {
-                                    //var drilldown = this.drilldown; // uses keyword 'this'
-                                    //var options; // create variable to passed into setChart function
-                                    if (drilldown) { // drill down
-                                        options = {
-                                                'title': drilldown.title,
-                                                'subtitle': drilldown.subtitle,
-                                                'name': drilldown.name,
-                                                'categories': drilldown.categories,
-                                                'data': drilldown.data,
-                                                'type': chartType
-                                        };
-                                    } else { // restore to first level
-                                        options = {
-                                                'title': title,
-                                                'subtitle': subtitle,
-                                                'name': name,
-                                                'categories': categories,
-                                                'data': data,
-                                                'type': chartType
-                                            // return options;
-                                        };
-                                    }
+                                    options = buildOptions(drilldown, options);
                                     setSecondChart(options);
                                 }
                             } //end of responsive else statement
