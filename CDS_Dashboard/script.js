@@ -10,33 +10,43 @@ $(document).ready( function() {
  mq.addListener(widthChange);
  desktopMq.addListener(widthChange);
  desktopMq2.addListener(widthChange);
- 
+ $container = $('.container');
+ var secondChart = $('#secondContainer'); 
+ var firstChart = $('#chartContainer');
+ var $modalName = $('#modalName');
+ var $modalInitiative = $('#modalInitiative');
+ var $modalServices = $('#modalServices');
+ var $modalObjective = $('#modalObjective');
+ var $modalPicture = $('#modalPicture');
+ var $modalWebsite = $('#modalWebsite');
+ var $exampleModal = $('#exampleModal');
+ var $closeModal = $('.close-modal');
+ var counter = 0;
+
  widthChange(mq, desktopMq, desktopMq2);
 
 function widthChange(mq, desktopMq, desktopMq2) {
     if (mq.matches) {
-        console.log('should be mobile');
-        $('.container').css('width', '550px')
-        $('#secondContainer').css("height", "250px");
-        $('#secondContainer').css('width', '300px');
-        $('#secondContainer').css('display', 'block');
-        $('#chartContainer').css("height", "250px");
-        $('#chartContainer').css("width", '300px');
+        $container.css('width', '550px')
+        secondChart.css("height", "250px");
+        secondChart.css('width', '300px');
+        secondChart.css('display', 'block');
+        firstChart.css("height", "250px");
+        firstChart.css("width", '300px');
     } else if (desktopMq.matches) {
-        console.log('should be desktop');
-        $('#secondContainer').css("height", "500px");
-        $('#secondContainer').css('width', '300px');
-        $('#chartContainer').css("height", "500px");
-        $('#chartContainer').css('width', '350px');
+        secondChart.css("height", "500px");
+        secondChart.css('width', '300px');
+        firstChart.css("height", "500px");
+        firstChart.css('width', '350px');
     } else if (desktopMq2.matches) {
-        $('#secondContainer').css("height", "500px");
-        $('#secondContainer').css('width', '350px');
-        $('#chartContainer').css("height", "500px");
-        $('#chartContainer').css('width', '400px'); 
+        secondChart.css("height", "500px");
+        secondChart.css('width', '350px');
+        firstChart.css("height", "500px");
+        firstChart.css('width', '400px'); 
     } 
     else {
-        $('#secondContainer').css('width', '500px');
-        $('#chartContainer').css('width', '500px');
+        secondChart.css('width', '500px');
+        firstChart.css('width', '500px');
     }
 }
 
@@ -48,50 +58,50 @@ var title = 'Projects';
     name = 'Groups';
     subtitle2 = 'Click section to Learn More';
     data = [{
-        y: 2, // this is to determine how big the slice of the pie you want for this item
+        y: 1, // this is to determine how big the slice of the pie you want for this item
         name: 'Pre-Discovery', // this is the top group - used in  328, 339 for tool tip and resetting
         color: '#6bad50', // decide color for the slice
-        list: 'DOC, BEA',
+        list: 'NOAA',
         // THIS BEGINS THE NEXT DRILLDOWN - for deeper drilldowns you create another object in the 'data' property
         drilldown: {
             title: 'Pre-Discovery Clients', // title at top of drill down
             subtitle: subtitle2, // can set subtitle here or you can use the one made above
             name: 'Users', // Way to organize your drilldowns based on info, doesn't show up in graph
-            categories: ['DOC'], // Line 227 uses this category to make X Axis
+            categories: ['NOAA'], // Line 227 uses this category to make X Axis
             data: [{
                 y: 1, // setting this to 0 makes it disappear
-                name: 'DOC',
+                name: 'NOAA',
                 color: '#6bad50',
-                initiative: 'Commerce Data Academy',
-                services: 'UI/UX',
+                initiative: 'Data Labs',
+                services: 'UI/UX, Back-End',
                 objective: 'Delivering Data Services',
                 modal: '#exampleModal',
-                picture: 'bureauLogos/DOC.png'
+                picture: 'bureauLogos/NOAA.jpg'
             }]
         }},
             {
         y: 1,
         name: 'Discovery',
         color: '#dee58c',
-        list: 'BEA',
+        list: 'DOC',
         drilldown: {
             title: 'Discovery Clients',
             subtitle: subtitle2,
             name: 'Users',
-            categories: ['BEA'],
+            categories: ['DOC'],
             data: [{
                 y: 1,
-                name: 'BEA',
+                name: 'DOC',
                 color: '#C5CB7C',
-                initiative: 'BEA RIMS II',
-                services: 'UI/UX',
-                objective: 'Delivering Data Services',
+                initiative: 'OMG CAP Project',
+                services: 'UI/UX, Data Science',
+                objective: 'Creating Data Driven Government',
                 modal: '#exampleModal',
-                picture: 'bureauLogos/BEA.jpg'
+                picture: 'bureauLogos/DOC.png'
             }]
         }
             }, {
-        y: 5,
+        y: 6,
         name: 'In-Progress',
         color: '#006c79',
         list: 'ITA, NIST, PTO, ESA',
@@ -104,12 +114,21 @@ var title = 'Projects';
                 y: 1,
                 name: 'NIST',
                 color: '#00555f',
-                initiative: 'Commerce Interoperability Project',
+                initiative: 'NetZero',
                 services: 'Data Science, Back-End',
                 objective: 'Creating Data-Driven Government',
                 modal: '#exampleModal',
                 picture: 'bureauLogos/NIST.jpg'
-            },  {
+            }, {
+                y: 1,
+                name: 'NIST',
+                color: '#00b0c5',
+                initiative:'MEP',
+                services: 'Data Science, Back-End',
+                objective: 'Creating Data-Driven Government',
+                modal: '#exampleModal',
+                picture: 'bureauLogos/NIST.jpg'
+            }, {
                 y: 1,
                 name: 'PTO',
                 color: '#007786',
@@ -118,15 +137,6 @@ var title = 'Projects';
                 objective: 'Fueling Economic Growth',
                 modal: '#exampleModal',
                 picture: 'bureauLogos/USPTO.jpg'
-            }, {
-                y: 1,
-                name: 'ESA',
-                color: '#00b0c5',
-                initiative: 'Commerce Data Advisory Council',
-                services: 'General',
-                objective: 'Fueling Economic Growth',
-                modal: 'exampleModal',
-                picture: 'bureauLogos/ESA.jpg'
             }, {
                 y: 1,
                 name: 'ITA',
@@ -144,18 +154,27 @@ var title = 'Projects';
                 services: 'Data Science',
                 objective: 'Fueling Economic Growth',
                 picture: 'bureauLogos/ITA.jpg'
+            }, {
+                y: 1,
+                name: 'BEA',
+                color: '#007786',
+                initiative: 'BEA RIMS II',
+                services: 'UI/UX',
+                objective: 'Delivering Data Services',
+                modal: '#exampleModal',
+                picture: 'bureauLogos/BEA.jpg'
             }]
         }
     }, {
-        y: 4,
+        y: 6,
         name: 'Complete',
         color: '#00305d',
-        list: 'DOC, CENSUS',
+        list: 'DOC, CENSUS, ESA',
         drilldown: {
             title: 'Complete Projects',
             subtitle: subtitle2,
             name: 'Users',
-            categories: ['DOC, CENSUS'],
+            categories: ['DOC', 'CENSUS', 'ESA'],
             data: [{
                 y: 1,
                 name: 'CENSUS',
@@ -163,7 +182,8 @@ var title = 'Projects';
                 initiative: 'Income Inequality',
                 services: 'General',
                 objective: 'Fueling Economic Growth',
-                picture: 'bureauLogos/CENSUS.jpg'
+                picture: 'bureauLogos/CENSUS.jpg',
+                web: 'https://midaas.commerce.gov/'
             }, {
                 y: 1,
                 name: 'DOC',
@@ -171,7 +191,8 @@ var title = 'Projects';
                 initiative: 'Commerce Data Usability Project',
                 services: 'UX/UI, Data Science, Back-End',
                 objective: 'Delivering Data Services',
-                picture: 'bureauLogos/DOC.png'
+                picture: 'bureauLogos/DOC.png',
+                web: 'https://www.commerce.gov/datausability/'
             }, {
                 y: 1,
                 name: 'DOC',
@@ -179,7 +200,8 @@ var title = 'Projects';
                 initiative: 'Data.Commerce.Gov',
                 services: 'General',
                 objective: 'Fueling Economic Growth',
-                picture: 'bureauLogos/DOC.png'
+                picture: 'bureauLogos/DOC.png',
+                web: 'https://data.commerce.gov/'
             }, {
                 y: 1, 
                 name: 'DOC',
@@ -188,6 +210,24 @@ var title = 'Projects';
                 services: 'Data Science, UX/UI',
                 objective: 'Delivering Data Services',
                 picture: 'bureauLogos/DOC.png'
+            }, {
+                y: 1,
+                name: 'DOC',
+                color: '#293479',
+                initiative: 'Commerce Data Academy',
+                services: 'General',
+                objective: 'Creating Data Driven Government',
+                picture: 'bureauLogos/DOC.png',
+                web: 'https://dataacademy.commerce.gov/'
+            }, {
+                y: 1,
+                name: 'ESA',
+                color: '#5A91C5',
+                initiative: 'Commerce Data Advisory Council (CDAC)',
+                services: 'General',
+                objective: 'Fueling Economic Growth',
+                picture: 'bureauLogos/ESA.jpg',
+                web: 'http://www.esa.gov/cdac/'
             }]
         }
     }];  // end of data property
@@ -210,8 +250,6 @@ function setChart(options) {
     chart.redraw() // redraws chart
 }
 
-var secondChart = $('#secondContainer'); 
-var firstChart = $('#chartContainer');
 
 function moveChart() {
     if (mq.matches) {
@@ -247,38 +285,59 @@ function setSecondChart(options) {
     }, false); // adds the series (which contains the data) - we pass it a new object and tell it false so it doesn't automatically re-render
      // xAxis[0] since there is only 1 axis - setCategory sets categories from the array you pass it (options.categories - you use false so it doesn't automatically redraw THUS you use chart.redraw() after)
     chart2.redraw() // redraws chart
-    
-    //firstChart.css("marginLeft", "auto");
-    //chart.redraw();
-    //console.log('this is running');
-    //console.log(firstChart.position())
     secondChart.css("visibility","visible");
 }
 
 //Used to create the modals rather than 
 function createModal(series) {              
-    $('#modalName').prepend('<p>' + "Bureau: " + series.name + '</p>');
-    $('#modalInitiative').prepend('<p>' + "Initiative: " + series.initiative + '</p>');
-    $('#modalServices').prepend('<p>' + "Services: " + series.services + '</p>');
-    $('#modalObjective').prepend('<p>' + "Objective: " + series.objective + '</p>');
-    $('#modalPicture').attr('src', series.picture);
-    //$('#exampleModal p').css("color", "blue");
-    $('#exampleModal').modal('show');
+    $modalName.prepend('<p>' + "Bureau: " + series.name + '</p>');
+    $modalInitiative.prepend('<p>' + "Initiative: " + series.initiative + '</p>');
+    $modalServices.prepend('<p>' + "Services: " + series.services + '</p>');
+    $modalObjective.prepend('<p>' + "Objective: " + series.objective + '</p>');
+    $modalPicture.attr('src', series.picture);
+    if (series.web) {
+        $modalWebsite.prepend('<p>' + series.web + '</p>');
+        $modalWebsite.attr('href', series.web);
+        $modalWebsite.attr('target', "_blank")
+    }
+    $exampleModal.modal('show');
     clearModal();
 }
 
 //Clears the modal so if double-clicked the information won't show up twice
 function clearModal() {
-    $('.close-modal').click(function() {
-        //console.log('hi');
-        $('#modalName').empty();
-        $('#modalInitiative').empty();
-        $('#modalServices').empty();
-        $('#modalObjective').empty();
+    $closeModal.click(function() {
+        $modalName.empty();
+        $modalInitiative.empty();
+        $modalServices.empty();
+        $modalObjective.empty();
+        $modalWebsite.empty();
     });
 }
 
-var counter = 0;
+function buildOptions(drilldown, options) {
+    if (drilldown) { // drill down
+        options = {
+                'title': drilldown.title,
+                'subtitle': drilldown.subtitle,
+                'name': drilldown.name,
+                'categories': drilldown.categories,
+                'data': drilldown.data,
+                'type': chartType
+        };
+    } else { // restore to first level
+        options = {
+                'title': title,
+                'subtitle': subtitle,
+                'name': name,
+                'categories': categories,
+                'data': data,
+                'type': chartType
+            // return options;
+        };
+    }
+    return options
+}
 
 chart = new Highcharts.Chart({
     credits: {
@@ -330,84 +389,26 @@ chart = new Highcharts.Chart({
                         
                         
                         function responsiveHighCharts(mq) {
+                            
+                            console.log(options);
                             if (mq.matches) {
                                    // create variable to passed into setChart function
                                     setTimeout(function() {
+                                        console.log(options);
                                         setSecondChart(options)
                                     },700);
-                                    if (drilldown) { // drill down
-                                        options = {
-                                                'title': drilldown.title,
-                                                'subtitle': drilldown.subtitle,
-                                                'name': drilldown.name,
-                                                'categories': drilldown.categories,
-                                                'data': drilldown.data,
-                                                'type': chartType
-                                        };
-                                    } else { // restore to first level
-                                        options = {
-                                                'title': title,
-                                                'subtitle': subtitle,
-                                                'name': name,
-                                                'categories': categories,
-                                                'data': data,
-                                                'type': chartType
-                                            // return options;
-                                        };
-                                    }
+                                    options = buildOptions(drilldown, options);
 
                             } else {
                                 if (counter == 0) {
                                     counter++;
                                     moveChart();
-                                    //var drilldown = this.drilldown; // uses keyword 'this'
-                                    //var options; // create variable to passed into setChart function
-                                    setTimeout(function() {
+                                    setTimeout( function() {
                                         setSecondChart(options)
                                     },700);
-                                    if (drilldown) { // drill down
-                                        options = {
-                                                'title': drilldown.title,
-                                                'subtitle': drilldown.subtitle,
-                                                'name': drilldown.name,
-                                                'categories': drilldown.categories,
-                                                'data': drilldown.data,
-                                                'type': chartType
-                                        };
-                                    } else { // restore to first level
-                                        options = {
-                                                'title': title,
-                                                'subtitle': subtitle,
-                                                'name': name,
-                                                'categories': categories,
-                                                'data': data,
-                                                'type': chartType
-                                            // return options;
-                                        };
-                                    }
+                                    options = buildOptions(drilldown, options);
                                 } else {
-                                    //var drilldown = this.drilldown; // uses keyword 'this'
-                                    //var options; // create variable to passed into setChart function
-                                    if (drilldown) { // drill down
-                                        options = {
-                                                'title': drilldown.title,
-                                                'subtitle': drilldown.subtitle,
-                                                'name': drilldown.name,
-                                                'categories': drilldown.categories,
-                                                'data': drilldown.data,
-                                                'type': chartType
-                                        };
-                                    } else { // restore to first level
-                                        options = {
-                                                'title': title,
-                                                'subtitle': subtitle,
-                                                'name': name,
-                                                'categories': categories,
-                                                'data': data,
-                                                'type': chartType
-                                            // return options;
-                                        };
-                                    }
+                                    options = buildOptions(drilldown, options);
                                     setSecondChart(options);
                                 }
                             } //end of responsive else statement
