@@ -21,7 +21,6 @@ $(document).ready( function() {
  var $modalWebsite = $('#modalWebsite');
  var $exampleModal = $('#exampleModal');
  var $closeModal = $('.close-modal');
- var counter = 0;
 
  widthChange(mq, desktopMq, desktopMq2);
 
@@ -97,7 +96,7 @@ var title = 'Projects';
                 services: 'UI/UX, Data Science',
                 objective: 'Creating Data Driven Government',
                 modal: '#exampleModal',
-                picture: 'bureauLogos/DOC.png'
+                picture: 'bureauLogos/DOC.jpg'
             }]
         }
             }, {
@@ -315,29 +314,7 @@ function clearModal() {
     });
 }
 
-function buildOptions(drilldown, options) {
-    if (drilldown) { // drill down
-        options = {
-                'title': drilldown.title,
-                'subtitle': drilldown.subtitle,
-                'name': drilldown.name,
-                'categories': drilldown.categories,
-                'data': drilldown.data,
-                'type': chartType
-        };
-    } else { // restore to first level
-        options = {
-                'title': title,
-                'subtitle': subtitle,
-                'name': name,
-                'categories': categories,
-                'data': data,
-                'type': chartType
-            // return options;
-        };
-    }
-    return options
-}
+var counter = 0;
 
 chart = new Highcharts.Chart({
     credits: {
@@ -389,26 +366,82 @@ chart = new Highcharts.Chart({
                         
                         
                         function responsiveHighCharts(mq) {
-                            
-                            console.log(options);
                             if (mq.matches) {
                                    // create variable to passed into setChart function
                                     setTimeout(function() {
-                                        console.log(options);
                                         setSecondChart(options)
                                     },700);
-                                    options = buildOptions(drilldown, options);
+                                    if (drilldown) { // drill down
+                                        options = {
+                                                'title': drilldown.title,
+                                                'subtitle': drilldown.subtitle,
+                                                'name': drilldown.name,
+                                                'categories': drilldown.categories,
+                                                'data': drilldown.data,
+                                                'type': chartType
+                                        };
+                                    } else { // restore to first level
+                                        options = {
+                                                'title': title,
+                                                'subtitle': subtitle,
+                                                'name': name,
+                                                'categories': categories,
+                                                'data': data,
+                                                'type': chartType
+                                            // return options;
+                                        };
+                                    }
 
                             } else {
                                 if (counter == 0) {
                                     counter++;
                                     moveChart();
-                                    setTimeout( function() {
+                                    setTimeout(function() {
                                         setSecondChart(options)
                                     },700);
-                                    options = buildOptions(drilldown, options);
+                                    if (drilldown) { // drill down
+                                        options = {
+                                                'title': drilldown.title,
+                                                'subtitle': drilldown.subtitle,
+                                                'name': drilldown.name,
+                                                'categories': drilldown.categories,
+                                                'data': drilldown.data,
+                                                'type': chartType
+                                        };
+                                    } else { // restore to first level
+                                        options = {
+                                                'title': title,
+                                                'subtitle': subtitle,
+                                                'name': name,
+                                                'categories': categories,
+                                                'data': data,
+                                                'type': chartType
+                                            // return options;
+                                        };
+                                    }
                                 } else {
-                                    options = buildOptions(drilldown, options);
+                                    //var drilldown = this.drilldown; // uses keyword 'this'
+                                    //var options; // create variable to passed into setChart function
+                                    if (drilldown) { // drill down
+                                        options = {
+                                                'title': drilldown.title,
+                                                'subtitle': drilldown.subtitle,
+                                                'name': drilldown.name,
+                                                'categories': drilldown.categories,
+                                                'data': drilldown.data,
+                                                'type': chartType
+                                        };
+                                    } else { // restore to first level
+                                        options = {
+                                                'title': title,
+                                                'subtitle': subtitle,
+                                                'name': name,
+                                                'categories': categories,
+                                                'data': data,
+                                                'type': chartType
+                                            // return options;
+                                        };
+                                    }
                                     setSecondChart(options);
                                 }
                             } //end of responsive else statement
@@ -550,4 +583,90 @@ chart2 = new Highcharts.Chart({
     },
 }); // end of chart = new Highcharts.Chart()
 
+function chartTemplate() {
+    this.chart = {
+            type: 'bar'
+        };
+        title: {
+            text: 'Fruit Consumption'
+        };
+        xAxis: {
+            categories: ['Apples', 'Bananas', 'Oranges']
+        };
+        yAxis: {
+            title: {
+                text: 'Fruit eaten'
+            }
+        };
+        series: [{
+            name: 'Jane',
+            data: [1, 0, 4]
+        }, {
+            name: 'John',
+            data: [5, 7, 3]
+        }]
+    }
+
+function ChartThree() {
+    this.chart = {
+        title: {
+            text: 'Real Dogs'
+        }
+    }
+}
+
+ChartThree.prototype = new chartTemplate();
+
+var chart4 = new ChartThree;
+console.log(chart4);
+$('#thirdContainer').highcharts(chart4);
+
 }); // end of document.ready()
+
+
+////////////////////////////////
+// Animal (Parent) Class
+////////////////////////////////
+function Animal( name ){
+  this.name = name;
+}
+
+Animal.prototype.kingdom = "Animalia";
+Animal.prototype.breathe = function() {console.log("Inhale... exhale...")};
+
+
+////////////////////////////////
+// HELLO THIS IS DOG
+////////////////////////////////
+function Dog(name, breed){
+  this.name = name;
+  this.breed = breed;
+}
+
+// Important! Set up the link in the prototype chain connecting Dogs to Animals
+Dog.prototype = new Animal();
+
+// Add any methods / properties shared by all dogs.
+Dog.prototype.bark = function(){ console.log("Woof")};
+Dog.prototype.species = "Canis canis"
+
+////////////////////////////////
+// Testing our dawgs
+////////////////////////////////
+var spot = new Dog("Spot", "Beagle");
+
+// from Animal prototype
+spot.kingdom;
+spot.breathe();
+
+// from Dog prototype
+spot.bark();
+spot.species;
+
+// from Dog properties
+spot.name;
+spot.breed;
+
+console.log("Animal " + Animal());
+console.log("Dog " + Dog());
+console.log("spot " + spot);
