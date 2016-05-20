@@ -13,12 +13,14 @@
 .header-content-inner{
   padding-top: 150px;
   padding-bottom: 150px;
-  text-transform: uppercase;
 }
 
 .header-content-inner > h1{
-  font-size: 40px;
+  font-size: 75px;
+  font-family: 'Roboto', Helvetica, Arial, sans-serif;
+  font-weight: 700;
 }
+
 #services {
 	padding-left: 75px;
 	padding-right: 75px;
