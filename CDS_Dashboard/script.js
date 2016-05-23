@@ -75,7 +75,7 @@ var title = 'Projects';
                 services: 'UI/UX, Back-End',
                 objective: 'Delivering Data Services',
                 modal: '#exampleModal',
-                picture: 'bureauLogos/NOAA.jpg'
+                picture: '../ImageCarousel/bureauLogos2/noaa-logo.png'
             }]
         }},
             {
@@ -96,7 +96,7 @@ var title = 'Projects';
                 services: 'UI/UX, Data Science',
                 objective: 'Creating Data Driven Government',
                 modal: '#exampleModal',
-                picture: 'bureauLogos/DOC.jpg'
+                picture: '../ImageCarousel/bureauLogos2/doc-logo.png'
             }]
         }
             }, {
@@ -126,7 +126,7 @@ var title = 'Projects';
                 services: 'Data Science, Back-End',
                 objective: 'Creating Data-Driven Government',
                 modal: '#exampleModal',
-                picture: 'bureauLogos/NIST.jpg'
+                picture: '../ImageCarousel/bureauLogos2/nist-logo.png'
             }, {
                 y: 1,
                 name: 'PTO',
@@ -135,7 +135,7 @@ var title = 'Projects';
                 services: 'General',
                 objective: 'Fueling Economic Growth',
                 modal: '#exampleModal',
-                picture: 'bureauLogos/USPTO.jpg'
+                picture: '../ImageCarousel/bureauLogos2/uspto-logo.png'
             }, {
                 y: 1,
                 name: 'ITA',
@@ -144,7 +144,7 @@ var title = 'Projects';
                 services: 'UI/UX, Back-End',
                 objective: 'Delivering Data Services',
                 modal: '#exampleModal',
-                picture: 'bureauLogos/ITA.jpg'
+                picture: '../ImageCarousel/bureauLogos2/ita-logo.png'
             }, {
                 y: 1,
                 name: 'ITA',
@@ -152,7 +152,7 @@ var title = 'Projects';
                 initiative: 'New Exporters Project',
                 services: 'Data Science',
                 objective: 'Fueling Economic Growth',
-                picture: 'bureauLogos/ITA.jpg'
+                picture: '../ImageCarousel/bureauLogos2/ita-logo.png'
             }, {
                 y: 1,
                 name: 'BEA',
@@ -161,7 +161,7 @@ var title = 'Projects';
                 services: 'UI/UX',
                 objective: 'Delivering Data Services',
                 modal: '#exampleModal',
-                picture: 'bureauLogos/BEA.jpg'
+                picture: '../ImageCarousel/bureauLogos2/bea-logo.png'
             }]
         }
     }, {
@@ -181,7 +181,7 @@ var title = 'Projects';
                 initiative: 'Income Inequality',
                 services: 'General',
                 objective: 'Fueling Economic Growth',
-                picture: 'bureauLogos/CENSUS.jpg',
+                picture: '../ImageCarousel/bureauLogos2/census-logo.png',
                 web: 'https://midaas.commerce.gov/'
             }, {
                 y: 1,
@@ -190,7 +190,7 @@ var title = 'Projects';
                 initiative: 'Commerce Data Usability Project',
                 services: 'UX/UI, Data Science, Back-End',
                 objective: 'Delivering Data Services',
-                picture: 'bureauLogos/DOC.png',
+                picture: '../ImageCarousel/bureauLogos2/doc-logo.png',
                 web: 'https://www.commerce.gov/datausability/'
             }, {
                 y: 1,
@@ -199,7 +199,7 @@ var title = 'Projects';
                 initiative: 'Data.Commerce.Gov',
                 services: 'General',
                 objective: 'Fueling Economic Growth',
-                picture: 'bureauLogos/DOC.png',
+                picture: '../ImageCarousel/bureauLogos2/doc-logo.png',
                 web: 'https://data.commerce.gov/'
             }, {
                 y: 1, 
@@ -208,7 +208,7 @@ var title = 'Projects';
                 initiative: 'White House Council of Women and Girls',
                 services: 'Data Science, UX/UI',
                 objective: 'Delivering Data Services',
-                picture: 'bureauLogos/DOC.png'
+                picture: '../ImageCarousel/bureauLogos2/doc-logo.png'
             }, {
                 y: 1,
                 name: 'DOC',
@@ -216,7 +216,7 @@ var title = 'Projects';
                 initiative: 'Commerce Data Academy',
                 services: 'General',
                 objective: 'Creating Data Driven Government',
-                picture: 'bureauLogos/DOC.png',
+                picture: '../ImageCarousel/bureauLogos2/doc-logo,png',
                 web: 'https://dataacademy.commerce.gov/'
             }, {
                 y: 1,
@@ -225,7 +225,7 @@ var title = 'Projects';
                 initiative: 'Commerce Data Advisory Council (CDAC)',
                 services: 'General',
                 objective: 'Fueling Economic Growth',
-                picture: 'bureauLogos/ESA.jpg',
+                picture: '../ImageCarousel/bureauLogos2/esa-logo.png',
                 web: 'http://www.esa.gov/cdac/'
             }]
         }
