@@ -36,6 +36,7 @@
 
 .our-team-title{
   color: white;
+  padding-top: 50px; 
 }
 
 .darken {
@@ -46,6 +47,7 @@
     ),
     url(../img/header.jpg);
 }
+
 
 
 /* This is the for the mobile icons to show as DoC IT would like them to show
