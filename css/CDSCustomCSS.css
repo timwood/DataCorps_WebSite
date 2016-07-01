@@ -21,6 +21,12 @@
   font-weight: 700;
 }
 
+@media only screen and (max-width: 768px) {
+  .header-content-inner > h1 {
+    font-size: 52px;
+  }
+}
+
 #services {
 	padding-left: 75px;
 	padding-right: 75px;
