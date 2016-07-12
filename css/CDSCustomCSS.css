@@ -21,6 +21,12 @@
   font-weight: 700;
 }
 
+@media only screen and (max-width: 768px) {
+  .header-content-inner > h1 {
+    font-size: 52px;
+  }
+}
+
 #services {
 	padding-left: 75px;
 	padding-right: 75px;
@@ -36,6 +42,7 @@
 
 .our-team-title{
   color: white;
+  padding-top: 50px; 
 }
 
 .darken {
@@ -47,6 +54,21 @@
     url(../img/header.jpg);
 }
 
+.class-row {
+  padding-top: 30px;
+}
+
+.set-as-white {
+  color: white;
+}
+
+.font-medium {
+  font-size: medium;
+}
+
+.font-large {
+  font-size: large;
+}
 
 /* This is the for the mobile icons to show as DoC IT would like them to show
  */
