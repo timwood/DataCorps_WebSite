@@ -99,3 +99,12 @@
 .mobileIconDiv span {
   display: none;
 }
+
+.site_buttons a {
+  margin-top: 80px;
+}
+
+#about .panel-body {
+  color: black;
+  text-align: left;
+}
