@@ -1,4 +1,6 @@
-import csv, ujson as json, pprint
+import csv, ujson as json, pprint, os, sys
+
+os.rename('../../../../Downloads/CDS_Team_Responses - Sheet1.csv', '../../../../Desktop/DataServ-dev/DataService_Website/scripts/data/CDS_Team_Responses.csv');
 
 pp = pprint.PrettyPrinter(indent=2)
 
