@@ -141,11 +141,14 @@ fieldset{
   margin: 0 5%;
 }
 
-.container .mix{
+#Container .mix{
+  display: none;
+}
+
+.container .mix {
   width: 22%;
   margin: 1%;
   background: white;
-  display: none;
 }
 
 @media all and (min-width: 320px){

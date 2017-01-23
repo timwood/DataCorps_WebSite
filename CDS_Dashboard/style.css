@@ -19,6 +19,10 @@
   margin: 0 auto;
 }
 
+.modal-content {
+  border-radius: 6px !important;
+}
+
 /* This is the CSS for the close modal */
 div.close-modal {
   float: left;
@@ -175,5 +179,46 @@ and (orientation : portrait) {
   div.close-modal {
     float: none;
     margin-bottom: 10px;
+  }
+}
+
+@media only screen 
+and (max-device-width : 768px) 
+and (orientation : portrait) {
+  div.modal-content {
+    padding-top: 5px;
+  }
+
+  div.close-modal {
+    margin-right: 6px;
+    vertical-align: top;
+    display: inline-block;
+    height:auto;
+    padding-left: 0px;
+    margin-bottom: 3px;
+  }
+
+  img#modalPicture {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  div#bureauInfo {
+    margin-top: 2px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+  }
+
+  div.close-modal .lr {
+    width: 2px;
+    height: 35px;
+    margin-left: 23px;
+  }
+
+  div.close-modal .lr .rl {
+    width: 2px;
+    height: 35px;
   }
 }

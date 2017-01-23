@@ -109,32 +109,8 @@ $(function(){
   // Initialize buttonFilter code
       
   buttonFilter.init();
-      
-  // Instantiate MixItUp
-      
-  $('#Container').mixItUp({
-    controls: {
-      enable: false // we won't be needing these
-    },
-    callbacks: {
-      onMixFail: function(){
-        console.log('this is failing')
-      }
-    }
-  });
-
-  //   This function is make sure that if you scroll down to the middle or bottom row, that when you click a bio that
-  //   it will scroll you to the top
-
-  $('.touchModal').on('show.bs.modal', function(e) {
-    var modal = $(this);
-    //modal.css( "border", " 3px solid red");
-    var framei = document.getElementById("topOfBox");
-    console.log(framei);
-    framei.scrollIntoView(true);
-    console.log('this launched');
-  });
-
 
 });
+
+
 
