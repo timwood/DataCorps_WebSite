@@ -1,6 +1,6 @@
 import csv, ujson as json, pprint, os, sys
 
-os.rename('../../../Downloads/CDS_Team_Responses - Sheet1.csv', '../scripts/data/cds_team_responses.json');
+os.rename('../../../Downloads/CDS_Team_Responses - Sheet1.csv', '../scripts/data/CDS_Team_Responses.csv');
 
 pp = pprint.PrettyPrinter(indent=2)
 
